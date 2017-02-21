@@ -11,15 +11,6 @@ package domein;
  */
 public class DomeinController {
     
-    public static void main(String[] args) {
-        
-        System.out.println("Hey");
-        
-        System.out.println("Nihholaï is ne samson");
-        
-        System.out.println("homo");
-    }
-    
 }
 
 
