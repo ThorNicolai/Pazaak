@@ -15,6 +15,7 @@ public class DomeinController {
         
         System.out.println("Hey");
         
+        System.out.println("Nicholaï is ne samson");
     }
     
 }
