@@ -2,7 +2,7 @@ package domein;
 
 public class Kaart {
     
-    private String type;
+    private String kaarttype;
     private int waarde;
     
     
