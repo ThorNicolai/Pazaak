@@ -8,6 +8,7 @@ public class StartUp {
         
         DomeinController dc = new DomeinController();
         
+        dc.voegSpelerToe("Jos", 2000); //roept methode voegSpelerToe aan uit DC
         
     }
 }
