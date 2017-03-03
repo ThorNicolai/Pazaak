@@ -1,14 +1,19 @@
 package domein;
 
-import java.util.List;
-
 public class SpelerRepository {
     
-    private List<Speler> spelerlijst;
     public SpelerRepository(){
         
+        Speler("Jos",2000,5);
         
     }
     
     
+    
+    private void controleerNaamUniek(String[] spelernaamarray){
+        
+        for(String speler:spelernaamarray){
+            
+        }
+    }
 }

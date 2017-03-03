@@ -6,7 +6,7 @@ public class Speler {
     private int geboortejaar;
     private int krediet;
     
-    public void Speler(String naam, int geboortejaar, int krediet){
+    public Speler(String naam, int geboortejaar, int krediet){
         this.naam = naam;
         this.geboortejaar = geboortejaar;
         this.krediet = krediet;
