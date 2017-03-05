@@ -28,6 +28,21 @@ public class Speler {
             throw new IllegalArgumentException("De naam moet minimum 3 karakters lang zijn.");
         }
         
+        
+        
+        
+        
+        for(int i = 0; i < naam.length(); i++){
+            if(Character.isWhitespace(naam.charAt(i))){
+                throw new IllegalArgumentException("De naam bevat een spatie");
+            }
+        }
+        
+        
+        
+        
+        
+        
     }
     
     private void controleerLeeftijd(int geboortejaar){
@@ -35,8 +50,17 @@ public class Speler {
         if(year - geboortejaar < 6 || year - geboortejaar > 99){
             throw new IllegalArgumentException("Je bent te jong om te spelen. Je moet minstens 6 jaar zijn!");
         }
+        
+        
            
     }
+    
+    
+    
+    
+    
+    
+    
 
     public String getNaam() {
         return naam;
