@@ -24,6 +24,8 @@ public class Speler {
     
     private void controleerNaam(String naam){
         
+        String[] leestekens={",",".","!","?"};
+        
         if(naam.length() < 3 || Character.isDigit(naam.charAt(0)) ){
             throw new IllegalArgumentException("De naam moet minimum 3 karakters lang zijn.");
         }
@@ -33,11 +35,21 @@ public class Speler {
         
         
         for(int i = 0; i < naam.length(); i++){
+            
+            
             if(Character.isWhitespace(naam.charAt(i))){
                 throw new IllegalArgumentException("De naam bevat een spatie");
             }
+            
+            
+            
+            
         }
-        
+        for(int i=0;i<leestekens.length;i++){
+            if(naam.contains(leestekens[i])){
+                throw new IllegalArgumentException("De naam bevat een leesteken");
+            }
+        }
         
         
         

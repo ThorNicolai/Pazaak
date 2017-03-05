@@ -12,7 +12,7 @@ public class SpelerRepository {
     
     public void voegSpelerToe(String naam, int geboortejaar){
         SpelerMapper spelerMapper = new SpelerMapper();
-        controleerNaamUniek(spelerMapper.geefAlleNamen(spelerMapper.spelers()), naam); //een of andere fout hier...
+        controleerNaamUniek(spelerMapper.geefAlleNamen(spelerMapper.spelers()), naam); 
         Speler speler5 = new Speler(naam,geboortejaar,5);
         System.out.println(speler5);
         
