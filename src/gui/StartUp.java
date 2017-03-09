@@ -10,10 +10,12 @@ public class StartUp {
         DomeinController dc = new DomeinController();
         
         Scanner input = new Scanner(System.in);
-        System.out.println("Geef uw gebruikersnaam in:");
+        System.out.println("Geef uw gebruikersnaam in: ");
         String naam = input.next();
+        System.out.println("Geef uw geboortejaar in: ");
+        int geboortejaar = input.nextInt();
         
-        dc.voegSpelerToe(naam, 2000); //roept methode voegSpelerToe aan uit DC
+        dc.voegSpelerToe(naam, geboortejaar); //roept methode voegSpelerToe aan uit DC
         
     }
 }
