@@ -34,12 +34,16 @@ public class Speler {
             throw new IllegalArgumentException("De naam moet minimum 3 karakters lang zijn en mag niet beginnen met een cijfer");
         }
 
-        for(int i=0;i<naam.length();i++){
-            char c = naam.charAt(i);
-            if(c==' '){
-                throw new IllegalArgumentException("bevat spatie");
-            }
-        }
+//        for(int i=0;i<naam.length();i++){ // werkt niet
+//            char c = naam.charAt(i);
+//            if(c==' '){
+//                throw new IllegalArgumentException("bevat spatie");
+//            }
+//        }
+        
+//        if(naam.contains(" ")){ //werkt ook niet
+//            throw new IllegalArgumentException("bevat spatie");
+//        }
 
         for (int i = 0; i < leestekens.length; i++) {
             if (naam.contains(leestekens[i])) {
@@ -47,10 +51,7 @@ public class Speler {
             }
         }
         
-        for(int i=0;i<getSpelerlijst().size();i++){
-            if(naam.equals((spelerlijst).get(i).getNaam)) //spelerlijst als parameter doorkrijgen
-                throw new IllegalArgumentException("naam niet uniek");
-        }
+        
             
         
 
