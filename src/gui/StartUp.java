@@ -1,6 +1,7 @@
 package gui;
 
 import domein.DomeinController;
+import java.util.Scanner;
 
 public class StartUp {
     
@@ -8,7 +9,13 @@ public class StartUp {
         
         DomeinController dc = new DomeinController();
         
-        dc.voegSpelerToe("Yarne", 2000); //roept methode voegSpelerToe aan uit DC
+        Scanner input = new Scanner(System.in);
+        System.out.println("Geef uw gebruikersnaam in: ");
+        String naam = input.next();
+        System.out.println("Geef uw geboortejaar in: ");
+        int geboortejaar = input.nextInt();
+        
+        dc.voegSpelerToe(naam, geboortejaar); //roept methode voegSpelerToe aan uit DC
         
     }
 }
