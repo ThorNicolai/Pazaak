@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import resources.Taal;
 
-public class pazaakApplicatie {
+public class PazaakApplicatie {
     
     Taal taal;
     
