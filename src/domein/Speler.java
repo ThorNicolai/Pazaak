@@ -7,11 +7,11 @@ import persistentie.SpelerMapper;
 
 public class Speler {
 
-    private List<Speler> lijstSpelers = new ArrayList<Speler>();
+    List<Speler> deSpelers = new ArrayList<>();
 
     private String naam;
     private int geboortejaar, krediet;
-    
+
     int year = Calendar.getInstance().get(Calendar.YEAR);
 
     public Speler(String naam, int geboortejaar, int krediet) {
@@ -20,13 +20,13 @@ public class Speler {
 
         controleerNaam(naam);
         this.naam = naam;
+
         controleerLeeftijd(geboortejaar);
         this.geboortejaar = geboortejaar;
 
     }
 
-    private void controleerNaam(String naam) throws IllegalArgumentException
-    {
+    private void controleerNaam(String naam) throws IllegalArgumentException {
 
         String[] leestekens = {",", ".", "!", "?", "'", ";", "-"};
 
@@ -34,26 +34,20 @@ public class Speler {
             throw new IllegalArgumentException("De naam moet minimum 3 karakters lang zijn en mag niet beginnen met een cijfer");
         }
 
-        for(int i=0;i<naam.length();i++){ // werkt niet
+        for (int i = 0; i < naam.length(); i++) {
             char c = naam.charAt(i);
-            if(c==' '){
+
+            if (c == ' ') {
                 throw new IllegalArgumentException("De naam bevat een spatie");
+
             }
         }
-        
-//        if(naam.contains(" ")){ //werkt ook niet
-//            throw new IllegalArgumentException("bevat spatie");
-//        }
 
         for (int i = 0; i < leestekens.length; i++) {
             if (naam.contains(leestekens[i])) {
                 throw new IllegalArgumentException("De naam bevat een leesteken");
             }
         }
-
-        
-            
-        
 
     }
 
@@ -79,10 +73,12 @@ public class Speler {
     }
 
     public void setNaam(String naam) {
+        controleerNaam(naam);
         this.naam = naam;
     }
 
     public void setGeboortejaar(int geboortejaar) {
+        controleerLeeftijd(geboortejaar);
         this.geboortejaar = geboortejaar;
     }
 

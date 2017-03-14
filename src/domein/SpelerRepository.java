@@ -19,7 +19,7 @@ public class SpelerRepository {
                 throw new IllegalArgumentException("naam niet uniek");
         }
         
-        Speler speler5 = new Speler(naam,geboortejaar,5);
+        Speler speler5 = new Speler(naam,geboortejaar,0);
         sm.voegSpelerToe(speler5);
         System.out.println(speler5);
         
