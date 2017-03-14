@@ -28,7 +28,7 @@ public class Speler {
     private void controleerNaam(String naam) throws IllegalArgumentException
     {
 
-        String[] leestekens = {",", ".", "!", "?"};
+        String[] leestekens = {",", ".", "!", "?", "'", ";", "-"};
 
         if (naam.length() < 3 || Character.isDigit(naam.charAt(0))) {
             throw new IllegalArgumentException("De naam moet minimum 3 karakters lang zijn en mag niet beginnen met een cijfer");
