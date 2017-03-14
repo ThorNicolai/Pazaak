@@ -34,12 +34,12 @@ public class Speler {
             throw new IllegalArgumentException("De naam moet minimum 3 karakters lang zijn en mag niet beginnen met een cijfer");
         }
 
-//        for(int i=0;i<naam.length();i++){ // werkt niet
-//            char c = naam.charAt(i);
-//            if(c==' '){
-//                throw new IllegalArgumentException("bevat spatie");
-//            }
-//        }
+        for(int i=0;i<naam.length();i++){ // werkt niet
+            char c = naam.charAt(i);
+            if(c==' '){
+                throw new IllegalArgumentException("bevat spatie");
+            }
+        }
         
 //        if(naam.contains(" ")){ //werkt ook niet
 //            throw new IllegalArgumentException("bevat spatie");
