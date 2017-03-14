@@ -11,7 +11,7 @@ public class StartUp {
         
         Scanner input = new Scanner(System.in);
         System.out.println("Geef uw gebruikersnaam in: ");
-        String naam = input.next();
+        String naam = input.nextLine();
         System.out.println("Geef uw geboortejaar in: ");
         int geboortejaar = input.nextInt();
         
