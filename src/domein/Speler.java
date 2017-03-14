@@ -7,7 +7,7 @@ import persistentie.SpelerMapper;
 
 public class Speler {
 
-    List<Speler> deSpelers = new ArrayList<>();
+    private List<Speler> lijstSpelers = new ArrayList<Speler>();
 
     private String naam;
     private int geboortejaar, krediet;
@@ -37,7 +37,7 @@ public class Speler {
         for(int i=0;i<naam.length();i++){ // werkt niet
             char c = naam.charAt(i);
             if(c==' '){
-                throw new IllegalArgumentException("bevat spatie");
+                throw new IllegalArgumentException("De naam bevat een spatie");
             }
         }
         
