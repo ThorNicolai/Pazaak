@@ -12,16 +12,10 @@ public class DomeinController {
         spelerrepo = new SpelerRepository();
     }
 
-    public void voegSpelerToe(String naam, int geboortejaar) {
+    public void voegSpelerToe(String naam, int geboortejaar) throws IllegalArgumentException {
 
         spelerrepo.voegSpelerToe(naam, geboortejaar); //roept methode voegSpelerToe aan uit SpelerRepository(waarin gecontroleerd wordt of naam al bestaat)
 
     }
 
-    public void kiesTaal(int keuze) {
-        taal = new Taal(keuze);
-    }
-
-    
- 
 }
