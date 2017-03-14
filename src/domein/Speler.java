@@ -8,10 +8,10 @@ import persistentie.SpelerMapper;
 public class Speler {
 
     List<Speler> deSpelers = new ArrayList<>();
-    
+
     private String naam;
-    private int geboortejaar;
-    private int krediet;
+    private int geboortejaar, krediet;
+    
     int year = Calendar.getInstance().get(Calendar.YEAR);
 
     public Speler(String naam, int geboortejaar, int krediet) {
@@ -22,11 +22,11 @@ public class Speler {
         this.naam = naam;
         controleerLeeftijd(geboortejaar);
         this.geboortejaar = geboortejaar;
-        
 
     }
 
-    private void controleerNaam(String naam) {
+    private void controleerNaam(String naam) throws IllegalArgumentException
+    {
 
         String[] leestekens = {",", ".", "!", "?"};
 
@@ -50,7 +50,7 @@ public class Speler {
                 throw new IllegalArgumentException("De naam bevat een leesteken");
             }
         }
-        
+
         
             
         
@@ -60,7 +60,8 @@ public class Speler {
     private void controleerLeeftijd(int geboortejaar) {
 
         if (year - geboortejaar < 6 || year - geboortejaar > 99) {
-            throw new IllegalArgumentException("Je bent te jong om te spelen. Je moet minstens 6 jaar zijn!");
+            throw new IllegalArgumentException("Een speler moet dit jaar minstens 6 "
+                    + "jaar en maximaal 99 zijn/worden.");
         }
 
     }
