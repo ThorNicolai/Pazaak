@@ -1,15 +1,17 @@
-    package gui;
+package gui;
 
-
-import ui.pazaakApplicatie2;
+import domein.DomeinController;
+import ui.PazaakApplicatie;
 
 public class StartUp {
 
     public static void main(String[] args) {
         
-        
-        pazaakApplicatie2 pa2 = new pazaakApplicatie2();
-        pa2.start();
+        DomeinController dc = new DomeinController();
+
+        PazaakApplicatie pa = new PazaakApplicatie(dc);
+        pa.kiesTaal();
+        pa.geefLogin();
 
     }
 
