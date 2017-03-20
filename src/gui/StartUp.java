@@ -1,4 +1,4 @@
-package gui;
+    package gui;
 
 import domein.DomeinController;
 import domein.Speler;

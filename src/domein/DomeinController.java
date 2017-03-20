@@ -1,6 +1,5 @@
 package domein;
 
-import java.util.ResourceBundle;
 import resources.Taal;
 import ui.PazaakApplicatie;
 
