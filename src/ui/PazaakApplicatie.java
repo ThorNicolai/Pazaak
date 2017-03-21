@@ -36,7 +36,7 @@ public class PazaakApplicatie {
                 System.out.print("Geef uw geboortejaar in: ");
                 geboortejaar = input.nextInt();
 
-                dc.voegSpelerToe(naam, geboortejaar,0);
+                dc.voegSpelerToe(naam, geboortejaar, 0);
 
                 flag1 = false;
 
@@ -44,13 +44,13 @@ public class PazaakApplicatie {
 
                 System.out.printf("%s%n%n", e.getMessage());
                 input.nextLine();
-            
-            } catch (NaamInGebruikException e){
-                
+
+            } catch (NaamInGebruikException e) {
+
                 System.out.printf("%s%n%n", e.getMessage());
                 input.nextLine();
             }
-            
+
         } while (flag1);
     }
 
