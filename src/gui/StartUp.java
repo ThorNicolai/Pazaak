@@ -10,8 +10,8 @@ public class StartUp {
         DomeinController dc = new DomeinController();
 
         PazaakApplicatie pa = new PazaakApplicatie(dc);
-        pa.kiesTaal();
-        pa.geefLogin();
+        //pa.kiesTaal();
+        pa.registreer();
 
     }
 

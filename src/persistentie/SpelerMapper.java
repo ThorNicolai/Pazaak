@@ -22,7 +22,9 @@ public class SpelerMapper {
             query.setInt(2, speler.getGeboortejaar());
             query.setInt(3, speler.getKrediet());
             query.executeUpdate();
-
+            
+            
+            
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
@@ -34,7 +36,7 @@ public class SpelerMapper {
         Speler speler = null;
 
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
-            PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.db.webhosting.be WHERE naam = ?");
+            PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.speler WHERE naam = ?");
             query.setString(1, naam);
             try (ResultSet rs = query.executeQuery()) {
                 if (rs.next()) {
