@@ -23,25 +23,23 @@ public class SpelerRepository {
 
         }
     }
-    
-
-    
 
     private boolean bestaatSpeler(String naam) {
-        
+
         boolean flag1 = false;
-        
+
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
             PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.db.webhosting.be WHERE naam==?");
             query.setString(1, naam);
             
             flag1 = true;
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
         
-        
-        return flag1;
+        return flag1 = true;
+
     }
 
     public Speler geefSpeler(String naam) {
