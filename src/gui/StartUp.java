@@ -8,10 +8,27 @@ public class StartUp {
     public static void main(String[] args) {
         
         DomeinController dc = new DomeinController();
-
+        int keuze;
+        
+        
         PazaakApplicatie pa = new PazaakApplicatie(dc);
-        //pa.kiesTaal();
-        pa.registreer();
+        System.out.println("Welkom / Welcome / Bienvenue");
+        pa.kiesTaal();        
+        
+        keuze = pa.kiesOptie();
+        
+        
+        switch(keuze){
+            
+            case 1: pa.registreer();
+            case 2: ;
+            case 3: ;
+            
+        }
+        
+        
+        
+        
 
     }
 
