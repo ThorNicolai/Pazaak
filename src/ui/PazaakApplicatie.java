@@ -71,6 +71,8 @@ public class PazaakApplicatie {
                 geboortejaar = input.nextInt();
 
                 dc.voegSpelerToe(naam, geboortejaar, 0);
+                
+                
 
                 flag1 = false;
 
@@ -84,7 +86,7 @@ public class PazaakApplicatie {
                 input.nextLine();
             }
 
-        } while (flag1);
+        } while (flag1 == true);
     }
 
     public Taal kiesTaal() {
