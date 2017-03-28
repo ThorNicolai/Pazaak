@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import persistentie.Connectie;
 import persistentie.SpelerMapper;
 import domein.Speler;
+import java.util.List;
 
 public class SpelerRepository {
 
@@ -42,6 +43,12 @@ public class SpelerRepository {
         Speler speler = sm.geefSpeler(naam);
 
         return null;
+    }
+    
+    public List<Speler> geefSpelers(){
+        
+        return sm.geefSpelers();
+        
     }
 }
 

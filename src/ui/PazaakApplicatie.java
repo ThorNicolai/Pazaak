@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import persistentie.Connectie;
 import resources.Taal;
@@ -16,11 +17,13 @@ import resources.Taal;
 public class PazaakApplicatie {
 
     private final DomeinController dc;
+    private List<Speler> spelers;
 
     Scanner scan = new Scanner(System.in);
 
     public PazaakApplicatie(DomeinController dc) {
         this.dc = dc;
+        spelers = dc.geefLijstSpelers();
 
     }
 
@@ -111,6 +114,21 @@ public class PazaakApplicatie {
         Taal taal = new Taal(keuze);
 
         return taal;
+    }
+    
+    public String toonLijstSpelers(){
+        
+       String lijst = "";
+       int teller = 1;
+       
+       
+       
+       for(Speler overloper : spelers){
+           lijst += String.format("%d)%s%n",teller,overloper.getNaam());
+       }
+       
+       return lijst;
+        
     }
 
 }
