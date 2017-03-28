@@ -33,7 +33,7 @@ public class PazaakApplicatie {
         do {
 
             try {
-                System.out.printf("1) Maak nieuwe speler%n2) Nieuwe wedstrijd starten%n3) Bestaande wedstrijd laden%n");
+                System.out.printf(taal.geefVertaling("menu"));
                 keuze = scan.nextInt();
 
                 scan.nextLine();
@@ -68,7 +68,7 @@ public class PazaakApplicatie {
                 System.out.printf(taal.geefVertaling("invoerNaam"));
                 naam = input.nextLine();
 
-                System.out.print("Geef een geboortejaar in: ");
+                System.out.print(taal.geefVertaling("invoerGeboortejaar"));
                 geboortejaar = input.nextInt();
 
                 dc.voegSpelerToe(naam, geboortejaar, 0);
@@ -98,19 +98,19 @@ public class PazaakApplicatie {
             try {
                 do {
 
-                    System.out.printf("Kies een taal: %n1)Nederlands %n2)Français%n3)English%n");
+                    System.out.printf("Choose a language: %n1)Nederlands %n2)Français%n3)English%n");
                     keuze = scan.nextInt();
                     scan.nextLine();
                 } while (keuze != 1 && keuze != 2 && keuze != 3);
                 keuzeBoolean = true;
-            } catch (ExceptionInInitializerError e) {
-                System.out.println("De ingevoerde waarde moet 1,2 of 3 zijn.");
+            } catch (InputMismatchException e) {
+                System.out.println(("The selection must be 1,2 or 3"));
                 scan.nextLine();
             }
         } while (keuzeBoolean == false);
-
+        
         Taal taal = new Taal(keuze);
-
+        System.out.println(taal.geefVertaling("taal"));
         return taal;
     }
 
