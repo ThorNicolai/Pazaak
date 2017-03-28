@@ -11,11 +11,12 @@ import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import persistentie.Connectie;
-import resources.Taal;
+import domein.Taal;
 
 public class PazaakApplicatie {
 
     private final DomeinController dc;
+    Taal taal = null;
 
     Scanner scan = new Scanner(System.in);
 
@@ -64,7 +65,7 @@ public class PazaakApplicatie {
 
             try {
 
-                System.out.print("Geef een gebruikersnaam in: ");
+                System.out.printf(taal.geefVertaling("invoerNaam"));
                 naam = input.nextLine();
 
                 System.out.print("Geef een geboortejaar in: ");

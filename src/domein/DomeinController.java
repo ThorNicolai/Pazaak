@@ -1,6 +1,6 @@
 package domein;
 
-import resources.Taal;
+import domein.Taal;
 import ui.PazaakApplicatie;
 
 public class DomeinController {
