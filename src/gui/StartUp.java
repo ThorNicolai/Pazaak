@@ -6,29 +6,25 @@ import ui.PazaakApplicatie;
 public class StartUp {
 
     public static void main(String[] args) {
-        
+
         DomeinController dc = new DomeinController();
         int keuze = 0;
-        
-        
+
         PazaakApplicatie pa = new PazaakApplicatie(dc);
         System.out.println("Welkom / Welcome / Bienvenue");
-        pa.kiesTaal();        
-        
+       //pa.kiesTaal();
+
         keuze = pa.kiesOptie();
-        
-        
-        switch(keuze){
-            
-            case 1: pa.registreer();break;
-            case 2: System.out.printf("%s",pa.geefSpelers());
-            case 3: ;
-            
+
+        switch (keuze) {
+
+            case 1:
+                pa.registreer();
+
+            case 2:
+                System.out.printf("%s",pa.geefSpelersLijst());
+
         }
-        
-        
-        
-        
 
     }
 
