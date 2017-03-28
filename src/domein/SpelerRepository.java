@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import persistentie.Connectie;
 import persistentie.SpelerMapper;
+import domein.Speler;
 
 public class SpelerRepository {
 
@@ -21,31 +22,22 @@ public class SpelerRepository {
         if (bestaatSpeler(speler.getNaam())) {
             throw new NaamInGebruikException();
 
+        } else {
+            sm.voegToe(speler);
         }
+
     }
 
     private boolean bestaatSpeler(String naam) {
 
-        boolean flag1 = false;
-
-        try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
-            PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.db.webhosting.be WHERE naam==?");
-            query.setString(1, naam);
-            
-            flag1 = true;
-
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
-        
-        return flag1 = true;
+        return sm.geefSpeler(naam) != null;
 
     }
 
     public Speler geefSpeler(String naam) {
         Speler speler = sm.geefSpeler(naam);
 
-        return speler;
+        return null;
     }
 }
 

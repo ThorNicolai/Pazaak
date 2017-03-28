@@ -13,7 +13,7 @@ public class StartUp {
         
         PazaakApplicatie pa = new PazaakApplicatie(dc);
         System.out.println("Welkom / Welcome / Bienvenue");
-        pa.kiesTaal();        
+        //pa.kiesTaal();        
         
         keuze = pa.kiesOptie();
         

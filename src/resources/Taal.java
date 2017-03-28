@@ -9,10 +9,21 @@ public class Taal
     private static Locale current = new Locale("nl","NL");
     private static ResourceBundle messages = ResourceBundle.getBundle("resources.vertaling", current);
     
-    public Taal(int taal)
+    public Taal(int keuze)
     {
+        bepaalTaal(keuze);
         
-        switch(taal)
+   }
+    
+    public static String geefVertaling(String key) 
+    {
+        return messages.getString(key);
+    }
+    
+    
+    public void bepaalTaal(int keuze){
+        
+        switch(keuze)
         {
             case 1 : current = new Locale("nl","NL");
             messages = ResourceBundle.getBundle("resources.vertaling", current);
@@ -23,13 +34,10 @@ public class Taal
             case 3 : current = new Locale("en", "EN");
             messages = ResourceBundle.getBundle("resources.vertaling", current);
             break;
-            default: current = new Locale("nl","NL");
-            messages = ResourceBundle.getBundle("resources.vertaling", current);
+            
         }
-   }
-    
-    public static String geefVertaling(String key) 
-    {
-        return messages.getString(key);
+        
+        
+        
     }
 }

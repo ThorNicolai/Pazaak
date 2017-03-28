@@ -3,6 +3,8 @@ package exceptions;
 public class NaamInGebruikException extends RuntimeException {
 
     public NaamInGebruikException() {
+        
+        
     }
 
     public NaamInGebruikException(String message) {

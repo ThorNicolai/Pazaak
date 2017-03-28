@@ -34,9 +34,13 @@ public class SpelerMapper {
     public Speler geefSpeler(String naam) {
 
         Speler speler = null;
+        boolean flag = false;
 
+        do{
+            
+        
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
-            PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.speler WHERE naam = ?");
+            PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.speler WHERE naam == '?'");
             query.setString(1, naam);
             try (ResultSet rs = query.executeQuery()) {
                 if (rs.next()) {
@@ -44,12 +48,17 @@ public class SpelerMapper {
                     int krediet = rs.getInt("krediet");
 
                     speler = new Speler(naam, geboortejaar, krediet);
+                    
+                    
+                    flag = true;
 
                 }
             }
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            throw new RuntimeException();
         }
+        
+        }while(flag = false);
 
         return speler;
     }

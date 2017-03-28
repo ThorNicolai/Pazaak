@@ -2,19 +2,53 @@ package ui;
 
 import domein.DomeinController;
 import domein.Speler;
+import domein.SpelerRepository;
 import exceptions.NaamInGebruikException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import persistentie.Connectie;
 import resources.Taal;
 
 public class PazaakApplicatie {
 
     private final DomeinController dc;
-    Taal taal;
+
     Scanner scan = new Scanner(System.in);
 
     public PazaakApplicatie(DomeinController dc) {
         this.dc = dc;
+
+    }
+
+    public int kiesOptie() {
+
+        boolean flag = false;
+        int keuze = 0;
+
+        do {
+
+            try {
+                System.out.printf("1) Maak nieuwe speler%n2) Nieuwe wedstrijd starten%n3) Bestaande wedstrijd laden%n");
+                keuze = scan.nextInt();
+
+                scan.nextLine();
+
+                flag = true;
+
+            } catch (InputMismatchException e) {
+
+                System.out.println("De waarde moet 1, 2 of 3 zijn.");
+                scan.nextLine();
+
+            }
+
+        } while (flag = false);
+
+        return keuze;
 
     }
 
@@ -28,15 +62,18 @@ public class PazaakApplicatie {
 
         do {
 
-            try {
+            try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
 
-                System.out.print("Geef uw gebruikersnaam in: ");
+                System.out.print("Geef een gebruikersnaam in: ");
                 naam = input.nextLine();
 
-                System.out.print("Geef uw geboortejaar in: ");
+                System.out.print("Geef een geboortejaar in: ");
                 geboortejaar = input.nextInt();
 
                 dc.voegSpelerToe(naam, geboortejaar, 0);
+
+                PreparedStatement query = conn.prepareStatement("SELECT naam FROM ID222177_g42.db.webhosting.be WHERE naam==?");
+                query.setString(1, naam);
 
                 flag1 = false;
 
@@ -48,6 +85,12 @@ public class PazaakApplicatie {
             } catch (NaamInGebruikException e) {
 
                 System.out.printf("%s%n%n", e.getMessage());
+                input.nextLine();
+            } catch (SQLException ex) {
+                input.nextLine();
+
+            } catch (Exception e) {
+                System.out.println("Naam is al in gebruik! Kies een andere naam.");
                 input.nextLine();
             }
 
@@ -61,18 +104,19 @@ public class PazaakApplicatie {
         do {
             try {
                 do {
+
                     System.out.printf("Kies een taal: %n1)Nederlands %n2)Français%n3)English%n");
                     keuze = scan.nextInt();
                     scan.nextLine();
                 } while (keuze != 1 && keuze != 2 && keuze != 3);
                 keuzeBoolean = true;
-            } catch (InputMismatchException e) {
+            } catch (ExceptionInInitializerError e) {
                 System.out.println("De ingevoerde waarde moet 1,2 of 3 zijn.");
                 scan.nextLine();
             }
         } while (keuzeBoolean == false);
 
-        taal = new Taal(keuze);
+        Taal taal = new Taal(keuze);
 
         return taal;
     }
