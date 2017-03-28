@@ -12,8 +12,6 @@ public class Speler {
     private int geboortejaar, krediet;
 
     int year = Calendar.getInstance().get(Calendar.YEAR);
-    
-    
 
     public Speler(String naam, int geboortejaar, int krediet) {
 

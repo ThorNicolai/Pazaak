@@ -13,20 +13,20 @@ import java.util.List;
 
 public class SpelerMapper {
 
-    public void voegToe(Speler speler) {
+    public void voegToe(Speler nieuweSpeler) {
 
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
-            PreparedStatement query = conn.prepareStatement("INSERT INTO ID222177_g42.db.webhosting.be (naam, geboortedatum, krediet)"
+            PreparedStatement query = conn.prepareStatement("INSERT INTO ID222177_g42.Speler(naam,geboortejaar,krediet)"
                     + "VALUES (?, ?, ?)");
-            query.setString(1, speler.getNaam());
-            query.setInt(2, speler.getGeboortejaar());
-            query.setInt(3, speler.getKrediet());
+            query.setString(1, nieuweSpeler.getNaam());
+            query.setInt(2, nieuweSpeler.getGeboortejaar());
+            query.setInt(3, nieuweSpeler.getKrediet());
             query.executeUpdate();
-            
-            
-            
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
+            
+
         }
 
     }
@@ -36,29 +36,27 @@ public class SpelerMapper {
         Speler speler = null;
         boolean flag = false;
 
-        do{
-            
-        
-        try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
-            PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.speler WHERE naam == '?'");
-            query.setString(1, naam);
-            try (ResultSet rs = query.executeQuery()) {
-                if (rs.next()) {
-                    int geboortejaar = rs.getInt("geboortejaar");
-                    int krediet = rs.getInt("krediet");
+        do {
 
-                    speler = new Speler(naam, geboortejaar, krediet);
-                    
-                    
-                    flag = true;
+            try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
+                PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.speler WHERE naam == '?'");
+                query.setString(1, naam);
+                try (ResultSet rs = query.executeQuery()) {
+                    if (rs.next()) {
+                        int geboortejaar = rs.getInt("geboortejaar");
+                        int krediet = rs.getInt("krediet");
 
+                        speler = new Speler(naam, geboortejaar, krediet);
+
+                        flag = true;
+
+                    }
                 }
+            } catch (SQLException ex) {
+                throw new RuntimeException();
             }
-        } catch (SQLException ex) {
-            throw new RuntimeException();
-        }
-        
-        }while(flag = false);
+
+        } while (flag = false);
 
         return speler;
     }

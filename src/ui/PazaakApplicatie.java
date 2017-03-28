@@ -62,7 +62,7 @@ public class PazaakApplicatie {
 
         do {
 
-            try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
+            try {
 
                 System.out.print("Geef een gebruikersnaam in: ");
                 naam = input.nextLine();
@@ -72,23 +72,13 @@ public class PazaakApplicatie {
 
                 dc.voegSpelerToe(naam, geboortejaar, 0);
 
-                PreparedStatement query = conn.prepareStatement("SELECT naam FROM ID222177_g42.db.webhosting.be WHERE naam==?");
-                query.setString(1, naam);
-
                 flag1 = false;
 
             } catch (IllegalArgumentException e) {
 
                 System.out.printf("%s%n%n", e.getMessage());
                 input.nextLine();
-
-            } catch (NaamInGebruikException e) {
-
-                System.out.printf("%s%n%n", e.getMessage());
-                input.nextLine();
-            } catch (SQLException ex) {
-                input.nextLine();
-
+                
             } catch (Exception e) {
                 System.out.println("Naam is al in gebruik! Kies een andere naam.");
                 input.nextLine();

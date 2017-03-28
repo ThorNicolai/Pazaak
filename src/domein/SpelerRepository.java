@@ -11,20 +11,24 @@ import domein.Speler;
 
 public class SpelerRepository {
 
-    SpelerMapper sm = new SpelerMapper();
+    private SpelerMapper sm;
 
     public SpelerRepository() {
+        
+        sm = new SpelerMapper();
 
     }
 
-    public void voegSpelerToe(Speler speler) {
+    public void voegSpelerToe(Speler nieuweSpeler) {
 
-        if (bestaatSpeler(speler.getNaam())) {
+        /* if (bestaatSpeler(speler.getNaam())) {
             throw new NaamInGebruikException();
 
         } else {
             sm.voegToe(speler);
-        }
+        }*/
+        
+        sm.voegToe(nieuweSpeler);
 
     }
 

@@ -14,8 +14,8 @@ public class DomeinController {
 
     public void voegSpelerToe(String naam, int geboortejaar, int krediet){
         
-        Speler speler = new Speler(naam,geboortejaar,krediet);
-        spelerrepo.voegSpelerToe(speler); //roept methode voegSpelerToe aan uit SpelerRepository(waarin gecontroleerd wordt of naam al bestaat)
+        Speler nieuweSpeler = new Speler(naam,geboortejaar,krediet);
+        spelerrepo.voegSpelerToe(nieuweSpeler); //roept methode voegSpelerToe aan uit SpelerRepository(waarin gecontroleerd wordt of naam al bestaat)
         
     }
 

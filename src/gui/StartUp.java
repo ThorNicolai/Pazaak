@@ -20,7 +20,7 @@ public class StartUp {
         
         switch(keuze){
             
-            case 1: pa.registreer();
+            case 1: pa.registreer();break;
             case 2: ;
             case 3: ;
             
