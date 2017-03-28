@@ -12,18 +12,21 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import persistentie.Connectie;
-import resources.Taal;
+import domein.Taal;
+import java.util.ArrayList;
 
 public class PazaakApplicatie {
 
     private final DomeinController dc;
-    private List<Speler> spelers;
+    Taal taal = null;
+    private List<Speler> lijstVanSpelers; 
 
     Scanner scan = new Scanner(System.in);
 
     public PazaakApplicatie(DomeinController dc) {
         this.dc = dc;
-        spelers = dc.geefLijstSpelers();
+        
+        
 
     }
 
@@ -67,7 +70,7 @@ public class PazaakApplicatie {
 
             try {
 
-                System.out.print("Geef een gebruikersnaam in: ");
+                System.out.printf(taal.geefVertaling("invoerNaam"));
                 naam = input.nextLine();
 
                 System.out.print("Geef een geboortejaar in: ");
@@ -116,19 +119,22 @@ public class PazaakApplicatie {
         return taal;
     }
     
-    public String toonLijstSpelers(){
+    public String geefSpelers() {
+
+        lijstVanSpelers = dc.geefSpelers();
+        String lijst ="";
+        int teller = 1;
         
-       String lijst = "";
-       int teller = 1;
-       
-       
-       
-       for(Speler overloper : spelers){
-           lijst += String.format("%d)%s%n",teller,overloper.getNaam());
-       }
-       
-       return lijst;
+        for(Speler overloper : lijstVanSpelers){
+            
+            lijst += String.format("%d) %s%n",teller,overloper.getNaam());
+            
+        }
         
+        return lijst;
+
     }
+    
+  
 
 }

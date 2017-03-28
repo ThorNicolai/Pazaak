@@ -15,7 +15,7 @@ public class SpelerRepository {
     private SpelerMapper sm;
 
     public SpelerRepository() {
-        
+
         sm = new SpelerMapper();
 
     }
@@ -28,7 +28,6 @@ public class SpelerRepository {
         } else {
             sm.voegToe(speler);
         }*/
-        
         sm.voegToe(nieuweSpeler);
 
     }
@@ -44,11 +43,11 @@ public class SpelerRepository {
 
         return null;
     }
-    
-    public List<Speler> geefSpelers(){
-        
+
+    public List<Speler> geefSpelers() {
+
         return sm.geefSpelers();
-        
+
     }
 }
 

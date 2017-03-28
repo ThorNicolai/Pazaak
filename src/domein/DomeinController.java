@@ -1,8 +1,7 @@
 package domein;
 
-import java.util.ArrayList;
+import domein.Taal;
 import java.util.List;
-import resources.Taal;
 import ui.PazaakApplicatie;
 
 public class DomeinController {
@@ -23,14 +22,12 @@ public class DomeinController {
         
     }
     
-    public List<Speler> geefLijstSpelers(){
-        
-        
-        
-        return spelerrepo.geefSpelers();
-        
-        
-    }
+    public List<Speler> geefSpelers() {
 
+        return spelerrepo.geefSpelers();
+
+    }
+    
+    
 
 }

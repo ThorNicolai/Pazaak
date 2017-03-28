@@ -1,4 +1,4 @@
-package resources;
+package domein;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 public class Taal 
 {
     private static Locale current = new Locale("nl","NL");
-    private static ResourceBundle messages = ResourceBundle.getBundle("resources.vertaling", current);
+    private static ResourceBundle messages = ResourceBundle.getBundle("resources.vertaling");
     
     public Taal(int keuze)
     {
