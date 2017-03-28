@@ -19,14 +19,12 @@ public class PazaakApplicatie {
 
     private final DomeinController dc;
     Taal taal = null;
-    private List<Speler> lijstVanSpelers; 
+    private List<Speler> lijstVanSpelers;
 
     Scanner scan = new Scanner(System.in);
 
     public PazaakApplicatie(DomeinController dc) {
         this.dc = dc;
-        
-        
 
     }
 
@@ -38,11 +36,12 @@ public class PazaakApplicatie {
         do {
 
             try {
-                System.out.printf(taal.geefVertaling("menu"));
-                keuze = scan.nextInt();
+                do {
+                    System.out.printf(taal.geefVertaling("menu"));
+                    keuze = scan.nextInt();
 
-                scan.nextLine();
-
+                    scan.nextLine();
+                } while (keuze != 1 && keuze != 2 && keuze != 3);
                 flag = true;
 
             } catch (InputMismatchException e) {
@@ -52,7 +51,7 @@ public class PazaakApplicatie {
 
             }
 
-        } while (flag = false);
+        } while (flag == false);
 
         return keuze;
 
@@ -77,8 +76,6 @@ public class PazaakApplicatie {
                 geboortejaar = input.nextInt();
 
                 dc.voegSpelerToe(naam, geboortejaar, 0);
-                
-                
 
                 flag1 = false;
 
@@ -86,9 +83,9 @@ public class PazaakApplicatie {
 
                 System.out.printf("%s%n%n", e.getMessage());
                 input.nextLine();
-                
+
             } catch (Exception e) {
-                System.out.println("Naam is al in gebruik! Kies een andere naam.");
+                System.out.println(taal.geefVertaling("naamGebruikt"));
                 input.nextLine();
             }
 
@@ -113,28 +110,26 @@ public class PazaakApplicatie {
                 scan.nextLine();
             }
         } while (keuzeBoolean == false);
-        
+
         Taal taal = new Taal(keuze);
         System.out.println(taal.geefVertaling("taal"));
         return taal;
     }
-    
+
     public String geefSpelers() {
 
         lijstVanSpelers = dc.geefSpelers();
-        String lijst ="";
+        String lijst = "";
         int teller = 1;
-        
-        for(Speler overloper : lijstVanSpelers){
-            
-            lijst += String.format("%d) %s%n",teller,overloper.getNaam());
-            
+
+        for (Speler overloper : lijstVanSpelers) {
+
+            lijst += String.format("%d) %s%n", teller, overloper.getNaam());
+
         }
-        
+
         return lijst;
 
     }
-    
-  
 
 }
