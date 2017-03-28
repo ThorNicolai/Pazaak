@@ -9,19 +9,24 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import persistentie.Connectie;
 import domein.Taal;
+import java.util.ArrayList;
 
 public class PazaakApplicatie {
 
     private final DomeinController dc;
     Taal taal = null;
+    private List<Speler> lijstVanSpelers; 
 
     Scanner scan = new Scanner(System.in);
 
     public PazaakApplicatie(DomeinController dc) {
         this.dc = dc;
+        
+        
 
     }
 
@@ -113,5 +118,23 @@ public class PazaakApplicatie {
         System.out.println(taal.geefVertaling("taal"));
         return taal;
     }
+    
+    public String geefSpelers() {
+
+        lijstVanSpelers = dc.geefSpelers();
+        String lijst ="";
+        int teller = 1;
+        
+        for(Speler overloper : lijstVanSpelers){
+            
+            lijst += String.format("%d) %s%n",teller,overloper.getNaam());
+            
+        }
+        
+        return lijst;
+
+    }
+    
+  
 
 }

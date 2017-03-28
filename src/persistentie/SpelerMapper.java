@@ -13,6 +13,8 @@ import java.util.List;
 
 public class SpelerMapper {
 
+     List<Speler> spelers = new ArrayList();
+    
     public void voegToe(Speler nieuweSpeler) {
 
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
@@ -22,10 +24,11 @@ public class SpelerMapper {
             query.setInt(2, nieuweSpeler.getGeboortejaar());
             query.setInt(3, nieuweSpeler.getKrediet());
             query.executeUpdate();
+            
+            spelers.add(nieuweSpeler);
 
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
-            
 
         }
 
@@ -59,5 +62,11 @@ public class SpelerMapper {
         } while (flag = false);
 
         return speler;
+    }
+
+    public List<Speler> geefSpelers() {
+
+        return spelers;
+        
     }
 }
