@@ -1,6 +1,7 @@
 package persistentie;
 
 import domein.Speler;
+import exceptions.NaamInGebruikException;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,8 +14,8 @@ import java.util.List;
 
 public class SpelerMapper {
 
-     List<Speler> spelers = new ArrayList();
     
+
     public void voegToe(Speler nieuweSpeler) {
 
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
@@ -24,11 +25,9 @@ public class SpelerMapper {
             query.setInt(2, nieuweSpeler.getGeboortejaar());
             query.setInt(3, nieuweSpeler.getKrediet());
             query.executeUpdate();
-            
-            spelers.add(nieuweSpeler);
 
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            throw new NaamInGebruikException(ex);
 
         }
 
@@ -64,9 +63,30 @@ public class SpelerMapper {
         return speler;
     }
 
-    public List<Speler> geefSpelers() {
+    public List<Speler> geefSpelersLijst() {
+        
+        List<Speler> spelers = new ArrayList<>();
+
+        try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
+            PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.Speler");
+
+            try (ResultSet rs = query.executeQuery()) {
+                while (rs.next()) {
+
+                    String naam = rs.getString("naam");
+                    int geboortejaar = rs.getInt("geboortejaar");
+                    int krediet = rs.getInt("krediet");
+
+                    spelers.add(new Speler(naam, geboortejaar, krediet));
+
+                }
+            }
+
+        } catch (SQLException ex) {
+            throw new RuntimeException();
+        }
 
         return spelers;
-        
+
     }
 }

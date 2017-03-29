@@ -19,14 +19,11 @@ public class PazaakApplicatie {
 
     private final DomeinController dc;
     Taal taal = null;
-    private List<Speler> lijstVanSpelers; 
 
     Scanner scan = new Scanner(System.in);
 
     public PazaakApplicatie(DomeinController dc) {
         this.dc = dc;
-        
-        
 
     }
 
@@ -60,7 +57,7 @@ public class PazaakApplicatie {
 
     public void registreer() {
 
-        DomeinController dc = new DomeinController();
+        //DomeinController dc = new DomeinController();
         Scanner input = new Scanner(System.in);
         String naam;
         int geboortejaar;
@@ -77,8 +74,6 @@ public class PazaakApplicatie {
                 geboortejaar = input.nextInt();
 
                 dc.voegSpelerToe(naam, geboortejaar, 0);
-                
-                
 
                 flag1 = false;
 
@@ -86,9 +81,9 @@ public class PazaakApplicatie {
 
                 System.out.printf("%s%n%n", e.getMessage());
                 input.nextLine();
-                
-            } catch (Exception e) {
-                System.out.println("Naam is al in gebruik! Kies een andere naam.");
+
+            } catch (NaamInGebruikException e) {
+                System.out.println("Naam is al in gebruik! kies een andere naam!");
                 input.nextLine();
             }
 
@@ -118,23 +113,11 @@ public class PazaakApplicatie {
 
         return taal;
     }
-    
-    public String geefSpelers() {
 
-        lijstVanSpelers = dc.geefSpelers();
-        String lijst ="";
-        int teller = 1;
+    public void toonSpelersLijst() {
         
-        for(Speler overloper : lijstVanSpelers){
-            
-            lijst += String.format("%d) %s%n",teller,overloper.getNaam());
-            
-        }
         
-        return lijst;
+        System.out.printf("%s%n",dc.geefSpelersLijst());
 
     }
-    
-  
-
 }

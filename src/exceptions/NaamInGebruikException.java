@@ -4,7 +4,7 @@ public class NaamInGebruikException extends RuntimeException {
 
     public NaamInGebruikException() {
         
-        
+        this("Naam is al in gebruik! Kies een andere naam.");
     }
 
     public NaamInGebruikException(String message) {

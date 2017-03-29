@@ -12,7 +12,7 @@ public class StartUp {
 
         PazaakApplicatie pa = new PazaakApplicatie(dc);
         System.out.println("Welkom / Welcome / Bienvenue");
-       //pa.kiesTaal();
+        //pa.kiesTaal();
 
         keuze = pa.kiesOptie();
 
@@ -22,7 +22,8 @@ public class StartUp {
                 pa.registreer();
 
             case 2:
-                System.out.printf("%s",pa.geefSpelersLijst());
+                pa.toonSpelersLijst();
+            
 
         }
 

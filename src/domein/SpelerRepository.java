@@ -14,14 +14,12 @@ import java.util.List;
 public class SpelerRepository {
 
     private SpelerMapper sm;
-    List<Speler> lijst = new ArrayList<>();
+    private List<Speler> spelerslijst;
 
     public SpelerRepository() {
-        
-       
 
         sm = new SpelerMapper();
-        lijst = sm.geefSpelersLijst();
+        spelerslijst = new ArrayList<>();
     }
 
     public void voegSpelerToe(Speler nieuweSpeler) {
@@ -48,9 +46,17 @@ public class SpelerRepository {
         return null;
     }
 
-    public List<Speler> geefSpelersLijst() {
+    public String geefSpelersLijst() {
+
+        String overzicht ="";
+        int teller = 1;
         
-       return sm.geefSpelersLijst();
+        for(Speler overloper : spelerslijst){
+            overzicht += String.format("%d) %s%n",teller,overloper.getNaam());
+            teller++;
+        }
+        
+        return overzicht;
 
     }
 }
