@@ -3,7 +3,7 @@ package domein;
 import domein.Taal;
 import java.util.ArrayList;
 import java.util.List;
-import ui.PazaakApplicatie;
+
 
 public class DomeinController {
 

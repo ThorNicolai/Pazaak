@@ -1,7 +1,11 @@
 package gui;
 
 import domein.DomeinController;
-import ui.PazaakApplicatie;
+import ui.KiesTaalApp;
+import ui.OptieMenu;
+
+import ui.RegistreerApp;
+import ui.ToonSpelerLijstApp;
 
 public class StartUp {
 
@@ -10,19 +14,24 @@ public class StartUp {
         DomeinController dc = new DomeinController();
         int keuze = 0;
 
-        PazaakApplicatie pa = new PazaakApplicatie(dc);
+        
+        KiesTaalApp ktapp = new KiesTaalApp(dc);
+        OptieMenu optiem = new OptieMenu(dc);
+        RegistreerApp rapp = new RegistreerApp(dc);
+        ToonSpelerLijstApp tslapp = new ToonSpelerLijstApp(dc);
+        
         System.out.println("Welkom / Welcome / Bienvenue");
-        //pa.kiesTaal();
+        ktapp.kiesTaal();
 
-        keuze = pa.kiesOptie();
+        keuze = optiem.kiesOptie();
 
         switch (keuze) {
 
             case 1:
-                pa.registreer();break;
+                rapp.registreer();break;
 
             case 2:
-                System.out.printf("%s%n",pa.toonSpelersLijst());break;
+                System.out.printf("%s%n",tslapp.toonSpelersLijst());break;
             
 
         }
