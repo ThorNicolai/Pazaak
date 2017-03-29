@@ -119,8 +119,8 @@ public class PazaakApplicatie {
 
         String overzicht = "";
         int teller = 1;
-        for (String overloper : dc.geefSpelersLijst()) {
-            overzicht += String.format("%d) %s%n", teller, overloper);
+        for (String speler : dc.geefSpelersLijst()) {
+            overzicht += String.format("%d) %s%n", teller,speler);
             teller++;
         }
 

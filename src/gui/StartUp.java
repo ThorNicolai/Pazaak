@@ -19,10 +19,10 @@ public class StartUp {
         switch (keuze) {
 
             case 1:
-                pa.registreer();
+                pa.registreer();break;
 
             case 2:
-                System.out.printf("%s%n",pa.toonSpelersLijst());
+                System.out.printf("%s%n",pa.toonSpelersLijst());break;
             
 
         }

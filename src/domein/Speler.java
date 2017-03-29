@@ -84,5 +84,12 @@ public class Speler {
     public void setKrediet(int krediet) {
         this.krediet = krediet;
     }
+    
+    @Override
+    public String toString(){
+        
+        return String.format("%s", naam);
+        
+    }
 
 }
