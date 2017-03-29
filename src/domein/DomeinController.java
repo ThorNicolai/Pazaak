@@ -27,9 +27,18 @@ public class DomeinController {
 
     }
 
-    public String geefSpelersLijst() {
+    public String[] geefSpelersLijst() {
         
-        return spelerrepo.geefSpelersLijst();
+        
+        String[] spelers = new String[spelerrepo.geefSpelersLijst().size()];
+        int index = 0;
+        for(Object speler : spelerrepo.geefSpelersLijst()){
+            spelers[index] = speler.toString();
+            index++;
+        }
+        
+        return spelers;
+
 
     }
 
