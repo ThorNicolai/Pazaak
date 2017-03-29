@@ -46,18 +46,9 @@ public class SpelerRepository {
         return null;
     }
 
-    public String geefSpelersLijst() {
+    public List<Speler> geefSpelersLijst() {
 
-        String overzicht ="";
-        int teller = 1;
-        
-        for(Speler overloper : spelerslijst){
-            overzicht += String.format("%d) %s%n",teller,overloper.getNaam());
-            teller++;
-        }
-        
-        return overzicht;
-
+        return sm.geefSpelers();
     }
 }
 

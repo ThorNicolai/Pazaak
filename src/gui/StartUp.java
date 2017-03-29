@@ -22,7 +22,7 @@ public class StartUp {
                 pa.registreer();
 
             case 2:
-                pa.toonSpelersLijst();
+                System.out.printf("%s%n",pa.toonSpelersLijst());
             
 
         }

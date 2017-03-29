@@ -117,7 +117,14 @@ public class PazaakApplicatie {
 
     public String toonSpelersLijst() {
 
-        return dc.geefSpelersLijst();
+        String overzicht = "";
+        int teller = 1;
+        for (String overloper : dc.geefSpelersLijst()) {
+            overzicht += String.format("%d) %s%n", teller, overloper);
+            teller++;
+        }
+
+        return overzicht;
 
     }
 }
