@@ -14,8 +14,6 @@ import java.util.List;
 
 public class SpelerMapper {
 
-    
-
     public void voegToe(Speler nieuweSpeler) {
 
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
@@ -63,16 +61,12 @@ public class SpelerMapper {
         return speler;
     }
 
-    public List<Speler> geefSpelersLijst() {
-        
+    public List<Speler> geefSpelers() {
         List<Speler> spelers = new ArrayList<>();
-
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
             PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.Speler");
-
             try (ResultSet rs = query.executeQuery()) {
                 while (rs.next()) {
-
                     String naam = rs.getString("naam");
                     int geboortejaar = rs.getInt("geboortejaar");
                     int krediet = rs.getInt("krediet");
@@ -80,13 +74,12 @@ public class SpelerMapper {
                     spelers.add(new Speler(naam, geboortejaar, krediet));
 
                 }
-            }
 
+            }
         } catch (SQLException ex) {
-            throw new RuntimeException();
+            throw new RuntimeException(ex);
         }
 
         return spelers;
-
     }
 }
