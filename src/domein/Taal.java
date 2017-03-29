@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 public class Taal 
 {
     private static Locale current = new Locale("nl","NL");
-    private static ResourceBundle messages = ResourceBundle.getBundle("resources.vertaling");
+    private static ResourceBundle messages = ResourceBundle.getBundle("resources.vertaling", current);
     
     public Taal(int keuze)
     {
