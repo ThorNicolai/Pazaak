@@ -1,17 +1,41 @@
 package main;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+import domein.DomeinController;
+import ui.KiesTaalApp;
+import ui.OptieMenu;
 
-public class StartUp extends Application {
+import ui.RegistreerApp;
+import ui.ToonSpelerLijstApp;
 
-    @Override
-    public void start(Stage primaryStage){
+public class StartUp {
+
+    public static void main(String[] args) {
+
+        DomeinController dc = new DomeinController();
+        int keuze = 0;
+
         
+        KiesTaalApp ktapp = new KiesTaalApp(dc);
+        OptieMenu optiem = new OptieMenu(dc);
+        RegistreerApp rapp = new RegistreerApp(dc);
+        ToonSpelerLijstApp tslapp = new ToonSpelerLijstApp(dc);
         
-        
+        System.out.println("Welkom / Welcome / Bienvenue");
+        ktapp.kiesTaal();
+
+        keuze = optiem.kiesOptie();
+
+        switch (keuze) {
+
+            case 1:
+                rapp.registreer();break;
+
+            case 2:
+                System.out.printf("%s%n",tslapp.toonSpelersLijst());break;
+            
+
+        }
+
     }
-    
-    
 
 }
