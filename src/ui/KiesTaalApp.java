@@ -24,7 +24,7 @@ public class KiesTaalApp {
             try {
                 do {
 
-                    System.out.printf("Choose a language: %n1)Nederlands %n2)Français%n3)English%n");
+                    System.out.printf("1) Nederlands%n2) Français%n3)English%n");
                     keuze = scan.nextInt();
                     scan.nextLine();
                 } while (keuze != 1 && keuze != 2 && keuze != 3);

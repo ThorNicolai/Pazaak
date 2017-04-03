@@ -6,16 +6,16 @@ import exceptions.NaamInGebruikException;
 import java.util.Scanner;
 
 public class RegistreerApp {
-    
+
     private final DomeinController dc;
     Taal taal = null;
-    
+
     Scanner scan = new Scanner(System.in);
 
     public RegistreerApp(DomeinController dc) {
         this.dc = dc;
     }
-    
+
     public void registreer() {
 
         //DomeinController dc = new DomeinController();
@@ -44,7 +44,7 @@ public class RegistreerApp {
                 input.nextLine();
 
             } catch (NaamInGebruikException e) {
-                System.out.println("Naam is al in gebruik! kies een andere naam!");
+                System.out.println(taal.geefVertaling("naamGebruikt"));
                 input.nextLine();
             }
 

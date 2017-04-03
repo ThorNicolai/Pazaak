@@ -25,7 +25,7 @@ public class OptieMenu {
 
             try {
                 do {
-                    System.out.printf("1) Maak nieuwe speler%n2) Start nieuwe wedstrijd%n3) Laad bestaande wedstrijd%n");
+                    System.out.printf(taal.geefVertaling("menu"));
                     keuze = scan.nextInt();
 
                     scan.nextLine();
