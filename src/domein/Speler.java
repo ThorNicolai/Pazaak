@@ -12,6 +12,8 @@ public class Speler {
     private int geboortejaar, krediet;
 
     int year = Calendar.getInstance().get(Calendar.YEAR);
+    
+    Taal taal = null;
 
     public Speler(String naam, int geboortejaar, int krediet) {
 
@@ -44,7 +46,7 @@ public class Speler {
 
         for (int i = 0; i < leestekens.length; i++) {
             if (naam.contains(leestekens[i])) {
-                throw new IllegalArgumentException("De naam bevat een leesteken");
+                throw new IllegalArgumentException(taal.geefVertaling("leesteken"));
             }
         }
 
