@@ -19,7 +19,7 @@ public class StartApplicatie {
         OptieMenu optiem = new OptieMenu(dc);
         RegistreerApp rapp = new RegistreerApp(dc);
         
-        Kies2SpelersApp k2sa = new Kies2SpelersApp(dc);
+        KiesSpelersApp ksa = new KiesSpelersApp(dc);
 
         System.out.println("Welkom / Bienvenue / Welcome");
         ktapp.kiesTaal();
@@ -34,7 +34,8 @@ public class StartApplicatie {
 
             case 2:
                 
-                k2sa.kies2Spelers();
+                ksa.kies2Spelers();
+                ksa.kies1Speler();
                 
                 
                 

@@ -4,18 +4,19 @@ import domein.DomeinController;
 import domein.Speler;
 import java.util.Scanner;
 
-public class Kies2SpelersApp {
+public class KiesSpelersApp {
 
     private final DomeinController dc;
     Speler[] gekozen2Spelers = new Speler[2];
-    
 
-    public Kies2SpelersApp(DomeinController dc) {
+    Scanner sc = new Scanner(System.in);
+
+    public KiesSpelersApp(DomeinController dc) {
         this.dc = dc;
     }
 
     public void kies2Spelers() {
-        
+
         ToonSpelerLijstApp tslapp = new ToonSpelerLijstApp(dc);
 
         boolean flag2 = false;
@@ -23,11 +24,9 @@ public class Kies2SpelersApp {
         do {
             try {
 
-                Scanner sc = new Scanner(System.in);
-
                 int eersteKeuze;
                 int tweedeKeuze;
-                
+
                 System.out.printf("%s%n", tslapp.toonSpelersLijst());
 
                 if (dc.geefSpelersLijst().length < 2) {
@@ -81,8 +80,32 @@ public class Kies2SpelersApp {
                 System.out.println("1 of beide spelers bestaan niet! ");
             }
         } while (flag2 == false);
-        
-        
+
+    }
+
+    public void kies1Speler() {
+
+        System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
+        System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
+        int eersteKeuze = sc.nextInt();
+
+        System.out.printf("Speler die een wedstrijdstapel wordt toegekend: %s%n", gekozen2Spelers[eersteKeuze - 1].toString());
+
+        System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
+        System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
+        int tweedeKeuze = sc.nextInt();
+
+        do {
+
+            System.out.println("De speler heeft al een wedstrijdstapel! kies een andere alstublieft.");
+
+            System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
+            System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
+            tweedeKeuze = sc.nextInt();
+
+        } while (eersteKeuze == tweedeKeuze);
+
+        System.out.printf("Speler die een wedstrijdstapel wordt toegekend: %s%n", gekozen2Spelers[tweedeKeuze - 1].toString());
 
     }
 }
