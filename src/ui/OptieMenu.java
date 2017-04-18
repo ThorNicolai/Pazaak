@@ -34,7 +34,7 @@ public class OptieMenu {
 
             } catch (InputMismatchException e) {
 
-                System.out.println("De waarde moet 1, 2 of 3 zijn.");
+                System.out.println(Taal.geefVertaling("controleerMenu"));
                 scan.nextLine();
 
             }
