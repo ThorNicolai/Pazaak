@@ -4,20 +4,17 @@ import domein.Taal;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class DomeinController {
 
     private SpelerRepository spelerrepo;
     private Wedstrijd wedstrijd;
     private Taal taal;
-    
-    
+    Speler[] spelers = new Speler[2];
 
     public DomeinController() {
         spelerrepo = new SpelerRepository();
         wedstrijd = new Wedstrijd();
-        
-        
+
     }
 
     public void voegSpelerToe(String naam, int geboortejaar, int krediet) {
@@ -28,33 +25,32 @@ public class DomeinController {
     }
 
     public String[] geefSpelersLijst() {
-        
-        
+
         String[] spelers = new String[spelerrepo.geefSpelersLijst().size()];
         int index = 0;
-        for(Object speler : spelerrepo.geefSpelersLijst()){
+        for (Object speler : spelerrepo.geefSpelersLijst()) {
             spelers[index] = speler.toString();
             index++;
         }
-        
+
         return spelers;
 
-
     }
-    
-    public Speler[] kies2Spelers(int eersteKeuze, int tweedeKeuze){
-        
-        Speler[] spelers = new Speler[2];
-        List <Speler> alleSpelers = new ArrayList<>();
+
+    public Speler[] kies2Spelers(int eersteKeuze, int tweedeKeuze) {
+
+        List<Speler> alleSpelers = new ArrayList<>();
         alleSpelers = spelerrepo.geefSpelersLijst();
+
+        spelers[0] = alleSpelers.get(eersteKeuze - 1);
+        spelers[1] = alleSpelers.get(tweedeKeuze - 1);
         
         
-            spelers[0] = alleSpelers.get(eersteKeuze - 1);
-            spelers[1] = alleSpelers.get(tweedeKeuze - 1);
         
         return spelers;
-        
-    }
 
+    }
     
+    
+
 }
