@@ -41,5 +41,20 @@ public class DomeinController {
 
 
     }
+    
+    public Speler[] kies2Spelers(int eersteKeuze, int tweedeKeuze){
+        
+        Speler[] spelers = new Speler[2];
+        List <Speler> alleSpelers = new ArrayList<>();
+        alleSpelers = spelerrepo.geefSpelersLijst();
+        
+        
+            spelers[0] = alleSpelers.get(eersteKeuze - 1);
+            spelers[1] = alleSpelers.get(tweedeKeuze - 1);
+        
+        return spelers;
+        
+    }
 
+    
 }
