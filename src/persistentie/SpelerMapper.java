@@ -72,6 +72,7 @@ public class SpelerMapper {
                     int krediet = rs.getInt("krediet");
 
                     spelers.add(new Speler(naam, geboortejaar, krediet));
+                    
 
                 }
 

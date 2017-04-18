@@ -13,7 +13,6 @@ public class DomeinController {
 
     public DomeinController() {
         spelerrepo = new SpelerRepository();
-        wedstrijd = new Wedstrijd();
 
     }
 
@@ -37,20 +36,17 @@ public class DomeinController {
 
     }
 
-    public Speler[] kies2Spelers(int eersteKeuze, int tweedeKeuze) {
+    public Speler[] maakWedstrijd(int eersteKeuze, int tweedeKeuze) {
 
         List<Speler> alleSpelers = new ArrayList<>();
         alleSpelers = spelerrepo.geefSpelersLijst();
 
         spelers[0] = alleSpelers.get(eersteKeuze - 1);
         spelers[1] = alleSpelers.get(tweedeKeuze - 1);
-        
-        
-        
+        wedstrijd = new Wedstrijd(spelers[0], spelers[1]);
+
         return spelers;
 
     }
-    
-    
 
 }

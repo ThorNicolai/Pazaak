@@ -18,7 +18,7 @@ public class StartApplicatie {
         KiesTaalApp ktapp = new KiesTaalApp(dc);
         OptieMenu optiem = new OptieMenu(dc);
         RegistreerApp rapp = new RegistreerApp(dc);
-        ToonSpelerLijstApp tslapp = new ToonSpelerLijstApp(dc);
+        
         Kies2SpelersApp k2sa = new Kies2SpelersApp(dc);
 
         System.out.println("Welkom / Bienvenue / Welcome");
@@ -33,8 +33,11 @@ public class StartApplicatie {
                 break;
 
             case 2:
-                System.out.printf("%s%n", tslapp.toonSpelersLijst());
+                
                 k2sa.kies2Spelers();
+                
+                
+                
                 break;
 
         }
