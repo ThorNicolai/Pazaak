@@ -3,6 +3,7 @@ package ui;
 import domein.DomeinController;
 import domein.Taal;
 import exceptions.NaamInGebruikException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RegistreerApp {
@@ -28,10 +29,10 @@ public class RegistreerApp {
 
             try {
 
-                System.out.printf(taal.geefVertaling("invoerNaam"));
+                System.out.print(Taal.geefVertaling("invoerNaam"));
                 naam = input.nextLine();
 
-                System.out.print(taal.geefVertaling("invoerGeboortejaar"));
+                System.out.print(Taal.geefVertaling("invoerGeboortejaar"));
                 geboortejaar = input.nextInt();
 
                 dc.voegSpelerToe(naam, geboortejaar, 0);
@@ -43,8 +44,11 @@ public class RegistreerApp {
                 System.out.printf("%s%n%n", e.getMessage());
                 input.nextLine();
 
+            } catch (InputMismatchException e) {
+                System.out.printf(Taal.geefVertaling("controleerInputRegistreer"));
+                input.nextLine();
             } catch (NaamInGebruikException e) {
-                System.out.println(taal.geefVertaling("naamGebruikt"));
+                System.out.println(Taal.geefVertaling("naamGebruikt"));
                 input.nextLine();
             }
 

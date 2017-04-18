@@ -1,7 +1,7 @@
 package domein;
 
 public class Kaart {
-    
+
     String kaarttype;
     int waarde;
 
@@ -24,5 +24,10 @@ public class Kaart {
 
     public void setWaarde(int waarde) {
         this.waarde = waarde;
+    }
+
+    private static final void geefStartStapel() {
+    
+        
     }
 }

@@ -21,7 +21,7 @@ public class StartApplicatie {
         ToonSpelerLijstApp tslapp = new ToonSpelerLijstApp(dc);
         Kies2SpelersApp k2sa = new Kies2SpelersApp(dc);
 
-        System.out.println("Welkom / Welcome / Bienvenue");
+        System.out.println("Welkom / Bienvenue / Welcome");
         ktapp.kiesTaal();
 
         keuze = optiem.kiesOptie();

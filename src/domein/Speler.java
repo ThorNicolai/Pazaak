@@ -32,21 +32,21 @@ public class Speler {
         String[] leestekens = {",", ".", "!", "?", "'", ";", "-"};
 
         if (naam.length() < 3 || Character.isDigit(naam.charAt(0))) {
-            throw new IllegalArgumentException("De naam moet minimum 3 karakters lang zijn en mag niet beginnen met een cijfer");
+            throw new IllegalArgumentException(Taal.geefVertaling("drNaam"));
         }
 
         for (int i = 0; i < naam.length(); i++) {
             char c = naam.charAt(i);
 
             if (c == ' ') {
-                throw new IllegalArgumentException("De naam bevat een spatie");
+                throw new IllegalArgumentException(Taal.geefVertaling("naamSpatie"));
 
             }
         }
 
         for (int i = 0; i < leestekens.length; i++) {
             if (naam.contains(leestekens[i])) {
-                throw new IllegalArgumentException(taal.geefVertaling("leesteken"));
+                throw new IllegalArgumentException(Taal.geefVertaling("naamLeesteken"));
             }
         }
 
@@ -55,8 +55,7 @@ public class Speler {
     private void controleerLeeftijd(int geboortejaar) {
 
         if (year - geboortejaar < 6 || year - geboortejaar > 99) {
-            throw new IllegalArgumentException("Een speler moet dit jaar minstens 6 "
-                    + "jaar en maximaal 99 zijn/worden.");
+            throw new IllegalArgumentException(Taal.geefVertaling("controleerGeboortejaar"));
         }
 
     }
