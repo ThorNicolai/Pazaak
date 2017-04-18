@@ -12,6 +12,7 @@ public class StartUp {
 
     public static void main(String[] args) {
         
+        
         DomeinController dc = new DomeinController();
         StartApplicatie sa = new StartApplicatie(dc);
         sa.start();

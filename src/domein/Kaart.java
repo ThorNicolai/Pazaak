@@ -2,8 +2,8 @@ package domein;
 
 public class Kaart {
 
-    String kaarttype;
-    int waarde;
+    private String kaarttype;
+    private int waarde;
 
     public Kaart(String kaarttype, int waarde) {
         this.kaarttype = kaarttype;
@@ -26,8 +26,4 @@ public class Kaart {
         this.waarde = waarde;
     }
 
-    private static final void geefStartStapel() {
-    
-        
-    }
 }

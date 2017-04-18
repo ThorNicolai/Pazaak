@@ -1,6 +1,7 @@
 package ui;
 
 import domein.DomeinController;
+import domein.Kaart;
 import domein.Taal;
 import exceptions.NaamInGebruikException;
 import java.util.InputMismatchException;
@@ -21,7 +22,7 @@ public class RegistreerApp {
 
         //DomeinController dc = new DomeinController();
         Scanner input = new Scanner(System.in);
-        String naam;
+        String naam = null;
         int geboortejaar;
         boolean flag1 = true;
 
@@ -53,6 +54,8 @@ public class RegistreerApp {
             }
 
         } while (flag1 == true);
+        System.out.printf("Speler %s is succesvol geregistreerd, zijn krediet bedraagt momenteel 0 euro.", naam);
+        System.out.println(taal.geefVertaling("startStapel"));
     }
 
 }
