@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class KiesTaalApp {
     
     private final DomeinController dc;
-    Taal taal = null;
+    private Taal taal;
     
     Scanner scan = new Scanner(System.in);
 
@@ -35,7 +35,7 @@ public class KiesTaalApp {
             }
         } while (keuzeBoolean == false);
 
-        Taal taal = new Taal(keuze);
+        taal = new Taal(keuze);
         System.out.println(taal.geefVertaling("taal"));
         return taal;
     }

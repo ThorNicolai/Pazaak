@@ -3,6 +3,12 @@ package ui;
 import domein.DomeinController;
 
 public class StartApplicatie {
+    
+    private final DomeinController dc;
+    
+    public StartApplicatie(DomeinController dc){
+        this.dc = dc;
+    }
 
     public void start() {
 
