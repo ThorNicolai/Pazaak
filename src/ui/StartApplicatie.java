@@ -19,6 +19,7 @@ public class StartApplicatie {
         OptieMenu optiem = new OptieMenu(dc);
         RegistreerApp rapp = new RegistreerApp(dc);
         ToonSpelerLijstApp tslapp = new ToonSpelerLijstApp(dc);
+        Kies2SpelersApp k2sa = new Kies2SpelersApp(dc);
 
         System.out.println("Welkom / Welcome / Bienvenue");
         ktapp.kiesTaal();
@@ -33,6 +34,7 @@ public class StartApplicatie {
 
             case 2:
                 System.out.printf("%s%n", tslapp.toonSpelersLijst());
+                k2sa.kies2Spelers();
                 break;
 
         }
