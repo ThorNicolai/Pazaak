@@ -2,16 +2,16 @@ package domein;
 
 public class Kaart {
 
-    private String kaarttype;
+    private String type;
     private int waarde;
 
     public Kaart(String kaarttype, int waarde) {
-        this.kaarttype = kaarttype;
+        this.type = kaarttype;
         this.waarde = waarde;
     }
 
     public String getKaarttype() {
-        return kaarttype;
+        return type;
     }
 
     public int getWaarde() {
@@ -19,11 +19,18 @@ public class Kaart {
     }
 
     public void setKaarttype(String kaarttype) {
-        this.kaarttype = kaarttype;
+        this.type = kaarttype;
     }
 
     public void setWaarde(int waarde) {
         this.waarde = waarde;
+    }
+    
+    @Override
+    public String toString(){
+        
+        return String.format("Type: %s \tWaarde: %d",type, waarde);
+        
     }
 
 }

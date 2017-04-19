@@ -84,13 +84,17 @@ public class KiesSpelersApp {
     }
 
     public void kies1Speler() {
+        
+        MaakWedstrijdStapel mws = new MaakWedstrijdStapel(dc);
 
         System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
         System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
         int eersteKeuze = sc.nextInt();
 
         System.out.printf("Speler die een wedstrijdstapel wordt toegekend: %s%n", gekozen2Spelers[eersteKeuze - 1].toString());
-
+        
+        mws.toonKaarten();
+        
         System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
         System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
         int tweedeKeuze = sc.nextInt();

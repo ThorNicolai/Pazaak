@@ -3,6 +3,7 @@ package domein;
 import domein.Taal;
 import java.util.ArrayList;
 import java.util.List;
+import persistentie.KaartMapper;
 
 public class DomeinController {
 
@@ -10,9 +11,11 @@ public class DomeinController {
     private Wedstrijd wedstrijd;
     private Taal taal;
     Speler[] spelers = new Speler[2];
+    private KaartMapper km;
 
     public DomeinController() {
         spelerrepo = new SpelerRepository();
+        km = new KaartMapper();
 
     }
 
@@ -48,12 +51,21 @@ public class DomeinController {
         return spelers;
 
     }
-    
-    public void MaakWedstrijdStapel(){
-        
-        
-        
-        
+
+    public void MaakWedstrijdStapel() {
+
+    }
+
+    public String[] toonKaarten() {
+
+        String[] kaarten = new String[km.geefKaarten().length];
+        int index = 0;
+        for (Object kaart : km.geefKaarten()) {
+            kaarten[index] = kaart.toString();
+        }
+
+        return kaarten;
+
     }
 
 }
