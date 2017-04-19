@@ -12,19 +12,16 @@ import ui.RegistreerApp;
 import ui.StartApplicatie;
 import ui.ToonSpelerLijstApp;
 
-public class StartUp extends Application {
-
-    public void start(Stage primaryStage) {
-
-        TaalScherm ts = new TaalScherm(new DomeinController());
-        Scene sc = new Scene(ts, 550, 500);
-        primaryStage.setTitle("Pazaak");
-        primaryStage.setScene(sc);
-        primaryStage.show();
-
-    }
-
+public class StartUp  {
+    
     public static void main(String[] args) {
-        launch(args);
+        
+        DomeinController dc = new DomeinController();
+        StartApplicatie sa = new StartApplicatie(dc);
+        sa.start();
+        
+        
     }
+
+    
 }
