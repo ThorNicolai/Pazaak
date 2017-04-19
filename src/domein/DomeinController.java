@@ -48,5 +48,12 @@ public class DomeinController {
         return spelers;
 
     }
+    
+    public void MaakWedstrijdStapel(){
+        
+        
+        
+        
+    }
 
 }

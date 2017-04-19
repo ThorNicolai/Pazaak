@@ -92,5 +92,9 @@ public class Speler {
         return String.format("%s",naam);
 
     }
+    
+    public void voegWedstrijdStapelToe(){
+        
+    }
 
 }
