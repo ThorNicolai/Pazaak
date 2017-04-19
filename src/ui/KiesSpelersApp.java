@@ -95,7 +95,7 @@ public class KiesSpelersApp {
         System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
         int tweedeKeuze = sc.nextInt();
 
-        do {
+        while (eersteKeuze == tweedeKeuze) {
 
             System.out.println("De speler heeft al een wedstrijdstapel! kies een andere alstublieft.");
 
@@ -103,7 +103,7 @@ public class KiesSpelersApp {
             System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
             tweedeKeuze = sc.nextInt();
 
-        } while (eersteKeuze == tweedeKeuze);
+        } 
 
         System.out.printf("Speler die een wedstrijdstapel wordt toegekend: %s%n", gekozen2Spelers[tweedeKeuze - 1].toString());
 
