@@ -58,7 +58,7 @@ public class DomeinController {
 
     public String[] toonKaarten() {
 
-        String[] kaarten = new String[km.geefKaarten().length];
+        String[] kaarten = new String[km.geefKaarten().size()];
         int index = 0;
         for (Object kaart : km.geefKaarten()) {
             kaarten[index] = kaart.toString();

@@ -22,21 +22,19 @@ public class MaakWedstrijdStapel {
         int kaart4 = sc.nextInt();
         int kaart5 = sc.nextInt();
         int kaart6 = sc.nextInt();
-        
-        
+
     }
-    
-    public String toonKaarten(){
-        
+
+    public String toonKaarten() {
+
         String overzicht = "";
-        
-        
-        for(String i : dc.toonKaarten()){
-            overzicht += String.format("%s%n",i);
+
+        for (String i : dc.toonKaarten()) {
+            overzicht += String.format("%s%n", i);
         }
-        
+
         return overzicht;
-        
+
     }
 
 }

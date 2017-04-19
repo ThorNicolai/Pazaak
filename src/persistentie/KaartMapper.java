@@ -7,24 +7,28 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class KaartMapper {
 
-    public Kaart[] geefKaarten() {
+    public List<Kaart> geefKaarten() {
 
-        Kaart[] kaarten = new Kaart[10];
+        List<Kaart> kaarten = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
             PreparedStatement query = conn.prepareStatement("SELECT * FROM ID222177_g42.Kaart");
             try (ResultSet rs = query.executeQuery()) {
+                
                 while (rs.next()) {
                     String type = rs.getString("type");
                     int waarde = rs.getInt("waarde");
 
-                    for (int i = 0; i < kaarten.length; i++) {
-                        kaarten[i] = new Kaart(type, waarde);
-                    }
+                    kaarten.add(new Kaart(type,waarde));
+                        
                 }
+                
+                
 
             }
         } catch (SQLException ex) {
