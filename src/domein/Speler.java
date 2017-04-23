@@ -97,7 +97,7 @@ public class Speler {
 
     public void setWedstrijdStapel(Kaart[] wedstrijdStapel) {
 
-        this.wedstrijdStapel = wedstrijdStapel;
+        this.wedstrijdStapel  = wedstrijdStapel;
         
     }
 

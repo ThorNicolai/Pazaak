@@ -13,6 +13,7 @@ public class MaakWedstrijdStapel {
     private final DomeinController dc;
     private Speler speler;
     private KaartMapper km;
+    private List<Kaart> kaarten;
 
     Scanner sc = new Scanner(System.in);
 
@@ -21,22 +22,8 @@ public class MaakWedstrijdStapel {
     }
 
     public void maakWedstrijdStapelAan() {
-
-        List<Kaart> kaartenDB = new ArrayList<>();
-        kaartenDB = km.geefKaarten();
-
-        Kaart[] gekozenKaarten = new Kaart[6];
-
-        int keuze;
-
-        for (int i = 0; i < gekozenKaarten.length - 1; i++) {
-            System.out.print("Kies een kaart: ");
-            keuze = sc.nextInt();
-            gekozenKaarten[i] = kaartenDB.get(keuze - 1);
-        }
-
-        speler.setWedstrijdStapel(gekozenKaarten);
-
+        
+        dc.MaakWedstrijdStapel();
     }
 
     public String toonKaarten() {

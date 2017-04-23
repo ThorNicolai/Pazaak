@@ -3,6 +3,7 @@ package domein;
 import domein.Taal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import persistentie.KaartMapper;
 
 public class DomeinController {
@@ -12,6 +13,10 @@ public class DomeinController {
     private Taal taal;
     Speler[] spelers = new Speler[2];
     private KaartMapper km;
+    private Speler speler;
+
+
+    Scanner sc = new Scanner(System.in);
 
     public DomeinController() {
         spelerrepo = new SpelerRepository();
@@ -21,7 +26,7 @@ public class DomeinController {
 
     public void voegSpelerToe(String naam, int geboortejaar, int krediet, Kaart[] wedstrijdStapel) {
 
-        Speler nieuweSpeler = new Speler(naam, geboortejaar, krediet,wedstrijdStapel);
+        Speler nieuweSpeler = new Speler(naam, geboortejaar, krediet, wedstrijdStapel);
         spelerrepo.voegSpelerToe(nieuweSpeler); //roept methode voegSpelerToe aan uit SpelerRepository(waarin gecontroleerd wordt of naam al bestaat)
 
     }
@@ -53,6 +58,22 @@ public class DomeinController {
     }
 
     public void MaakWedstrijdStapel() {
+
+        Kaart[] gekozenKaarten = new Kaart[6];
+
+        int keuze;
+
+        for (int i = 0; i <= gekozenKaarten.length - 1; i++) {
+            System.out.print("Kies een kaart: ");
+            keuze = sc.nextInt();
+            gekozenKaarten[i] = km.geefKaarten().get(keuze - 1);
+            speler.setWedstrijdStapel(gekozenKaarten);
+        }
+        
+        
+
+        
+        
 
     }
 
