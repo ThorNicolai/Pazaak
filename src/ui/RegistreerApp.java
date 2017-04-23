@@ -36,7 +36,7 @@ public class RegistreerApp {
                 System.out.print(Taal.geefVertaling("invoerGeboortejaar"));
                 geboortejaar = input.nextInt();
 
-                dc.voegSpelerToe(naam, geboortejaar, 0);
+                dc.voegSpelerToe(naam, geboortejaar, 0,null);
 
                 flag1 = false;
 

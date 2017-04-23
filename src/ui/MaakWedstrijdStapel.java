@@ -1,11 +1,18 @@
 package ui;
 
 import domein.DomeinController;
+import domein.Kaart;
+import domein.Speler;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import persistentie.KaartMapper;
 
 public class MaakWedstrijdStapel {
 
     private final DomeinController dc;
+    private Speler speler;
+    private KaartMapper km;
 
     Scanner sc = new Scanner(System.in);
 
@@ -15,13 +22,20 @@ public class MaakWedstrijdStapel {
 
     public void maakWedstrijdStapelAan() {
 
-        System.out.println("Kies 6 kaarten uit de stapel om te gebruiken in de wedstrijd!");
-        int kaart1 = sc.nextInt();
-        int kaart2 = sc.nextInt();
-        int kaart3 = sc.nextInt();
-        int kaart4 = sc.nextInt();
-        int kaart5 = sc.nextInt();
-        int kaart6 = sc.nextInt();
+        List<Kaart> kaartenDB = new ArrayList<>();
+        kaartenDB = km.geefKaarten();
+
+        Kaart[] gekozenKaarten = new Kaart[6];
+
+        int keuze;
+
+        for (int i = 0; i < gekozenKaarten.length - 1; i++) {
+            System.out.print("Kies een kaart: ");
+            keuze = sc.nextInt();
+            gekozenKaarten[i] = kaartenDB.get(keuze - 1);
+        }
+
+        speler.setWedstrijdStapel(gekozenKaarten);
 
     }
 

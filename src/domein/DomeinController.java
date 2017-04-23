@@ -19,9 +19,9 @@ public class DomeinController {
 
     }
 
-    public void voegSpelerToe(String naam, int geboortejaar, int krediet) {
+    public void voegSpelerToe(String naam, int geboortejaar, int krediet, Kaart[] wedstrijdStapel) {
 
-        Speler nieuweSpeler = new Speler(naam, geboortejaar, krediet);
+        Speler nieuweSpeler = new Speler(naam, geboortejaar, krediet,wedstrijdStapel);
         spelerrepo.voegSpelerToe(nieuweSpeler); //roept methode voegSpelerToe aan uit SpelerRepository(waarin gecontroleerd wordt of naam al bestaat)
 
     }
@@ -62,6 +62,7 @@ public class DomeinController {
         int index = 0;
         for (Object kaart : km.geefKaarten()) {
             kaarten[index] = kaart.toString();
+            index++;
         }
 
         return kaarten;

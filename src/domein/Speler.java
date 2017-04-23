@@ -3,6 +3,7 @@ package domein;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import persistentie.KaartMapper;
 
 public class Speler {
 
@@ -10,12 +11,14 @@ public class Speler {
 
     private String naam;
     private int geboortejaar, krediet;
+    private Kaart[] wedstrijdStapel;
 
     int year = Calendar.getInstance().get(Calendar.YEAR);
-    
-    Taal taal = null;
 
-    public Speler(String naam, int geboortejaar, int krediet) {
+    Taal taal = null;
+    private KaartMapper km;
+
+    public Speler(String naam, int geboortejaar, int krediet, Kaart[] wedstrijdStapel) {
 
         this.krediet = krediet;
 
@@ -24,6 +27,8 @@ public class Speler {
 
         controleerLeeftijd(geboortejaar);
         this.geboortejaar = geboortejaar;
+
+        this.wedstrijdStapel = wedstrijdStapel;
 
     }
 
@@ -86,15 +91,25 @@ public class Speler {
         this.krediet = krediet;
     }
 
+    public Kaart[] getWedstrijdStapel() {
+        return wedstrijdStapel;
+    }
+
+    public void setWedstrijdStapel(Kaart[] wedstrijdStapel) {
+
+        this.wedstrijdStapel = wedstrijdStapel;
+        
+    }
+
     @Override
     public String toString() {
 
-        return String.format("%s",naam);
+        return String.format("%s", naam);
 
     }
-    
-    public void voegWedstrijdStapelToe(){
-        
+
+    public void voegWedstrijdStapelToe() {
+
     }
 
 }

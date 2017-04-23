@@ -6,6 +6,7 @@ public class StartApplicatie {
     
     private final DomeinController dc;
     
+    
     public StartApplicatie(DomeinController dc){
         this.dc = dc;
     }
@@ -18,6 +19,7 @@ public class StartApplicatie {
         KiesTaalApp ktapp = new KiesTaalApp(dc);
         OptieMenu optiem = new OptieMenu(dc);
         RegistreerApp rapp = new RegistreerApp(dc);
+        MaakWedstrijdStapel mws = new MaakWedstrijdStapel(dc);
         
         KiesSpelersApp ksa = new KiesSpelersApp(dc);
 
@@ -36,6 +38,9 @@ public class StartApplicatie {
                 
                 ksa.kies2Spelers();
                 ksa.kies1Speler();
+                
+                
+                
                 
                 
                 

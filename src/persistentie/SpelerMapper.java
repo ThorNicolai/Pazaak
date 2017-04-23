@@ -46,7 +46,7 @@ public class SpelerMapper {
                         int geboortejaar = rs.getInt("geboortejaar");
                         int krediet = rs.getInt("krediet");
 
-                        speler = new Speler(naam, geboortejaar, krediet);
+                        speler = new Speler(naam, geboortejaar, krediet,null);
 
                         flag = true;
 
@@ -71,7 +71,7 @@ public class SpelerMapper {
                     int geboortejaar = rs.getInt("geboortejaar");
                     int krediet = rs.getInt("krediet");
 
-                    spelers.add(new Speler(naam, geboortejaar, krediet));
+                    spelers.add(new Speler(naam, geboortejaar, krediet, null));
                     
 
                 }
