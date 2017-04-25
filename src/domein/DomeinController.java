@@ -2,6 +2,8 @@ package domein;
 
 import domein.Taal;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import persistentie.KaartMapper;
@@ -61,6 +63,7 @@ public class DomeinController {
         int keuze;
        
         Kaart[] gekozenKaarten = new Kaart[6];
+        Kaart[] echteWedStapel = new Kaart[4];
 
         for (int i = 0; i < 6; i++) {
             System.out.print("Kies een kaart: ");
@@ -70,13 +73,19 @@ public class DomeinController {
 
         }
         
-        Kaart[] geselecteerdeKaarten = new Kaart[4];
+        Collections.shuffle(Arrays.asList(gekozenKaarten));
         
-        for(int i = 0; i < 4; i++){
-            
+        for(int j = 0; j < echteWedStapel.length; j++){
+            echteWedStapel[j] = gekozenKaarten[j];
         }
+        
+//        for(Kaart overloper : echteWedStapel){
+//            System.out.printf("%s",overloper.toString());
+//        }
+        
+        
 
-        spelers[geselecteerdeSpeler].setWedstrijdStapel(gekozenKaarten);
+        spelers[geselecteerdeSpeler].setWedstrijdStapel(echteWedStapel);
         
         
 
