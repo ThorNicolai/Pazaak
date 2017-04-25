@@ -4,6 +4,8 @@ import domein.DomeinController;
 import domein.Kaart;
 import domein.Speler;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import persistentie.KaartMapper;
@@ -23,7 +25,8 @@ public class MaakWedstrijdStapel {
 
     public void maakWedstrijdStapelAan(int gekozenSpeler) {
         
-        dc.maakWedstrijdStapel(gekozenSpeler);
+     dc.maakWedstrijdStapel(gekozenSpeler);
+        
     }
 
     public String toonKaarten() {
@@ -36,6 +39,10 @@ public class MaakWedstrijdStapel {
 
         return overzicht;
 
+    }
+    
+    public void maakWedstrijd(){
+        
     }
 
 }
