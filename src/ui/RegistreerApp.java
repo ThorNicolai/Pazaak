@@ -55,7 +55,7 @@ public class RegistreerApp {
             }
 
         } while (flag1 == true);
-        System.out.printf("Speler %s is succesvol geregistreerd, zijn krediet bedraagt momenteel 0 euro.", naam);
+        System.out.printf(Taal.geefVertaling("registratie"), naam);
         System.out.println(taal.geefVertaling("startStapel"));
     }
 
