@@ -95,20 +95,16 @@ public class Speler {
         return wedstrijdStapel;
     }
 
-    public void setWedstrijdStapel(Kaart[] wedstrijdStapel) {
+    public void setWedstrijdStapel(Kaart [] wedstrijdStapel) {
 
-        this.wedstrijdStapel  = wedstrijdStapel;
-        
+        this.wedstrijdStapel = wedstrijdStapel;
+
     }
 
     @Override
     public String toString() {
 
         return String.format("%s", naam);
-
-    }
-
-    public void voegWedstrijdStapelToe() {
 
     }
 

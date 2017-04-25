@@ -15,7 +15,6 @@ public class DomeinController {
     private KaartMapper km;
     private Speler speler;
 
-
     Scanner sc = new Scanner(System.in);
 
     public DomeinController() {
@@ -57,21 +56,27 @@ public class DomeinController {
 
     }
 
-    public void MaakWedstrijdStapel() {
-
-        Kaart[] gekozenKaarten = new Kaart[6];
+    public void maakWedstrijdStapel(int geselecteerdeSpeler) {
 
         int keuze;
+       
+        Kaart[] gekozenKaarten = new Kaart[6];
 
-        for (int i = 0; i <= gekozenKaarten.length - 1; i++) {
+        for (int i = 0; i < 6; i++) {
             System.out.print("Kies een kaart: ");
             keuze = sc.nextInt();
+
             gekozenKaarten[i] = km.geefKaarten().get(keuze - 1);
-            speler.setWedstrijdStapel(gekozenKaarten);
+
         }
         
+        Kaart[] geselecteerdeKaarten = new Kaart[4];
         
+        for(int i = 0; i < 4; i++){
+            
+        }
 
+        spelers[geselecteerdeSpeler].setWedstrijdStapel(gekozenKaarten);
         
         
 

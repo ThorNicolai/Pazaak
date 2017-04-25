@@ -23,6 +23,7 @@ public class RegistreerApp {
         //DomeinController dc = new DomeinController();
         Scanner input = new Scanner(System.in);
         String naam = null;
+        Kaart[] wedstrijdStapel = new Kaart[6];
         int geboortejaar;
         boolean flag1 = true;
 
@@ -36,7 +37,7 @@ public class RegistreerApp {
                 System.out.print(Taal.geefVertaling("invoerGeboortejaar"));
                 geboortejaar = input.nextInt();
 
-                dc.voegSpelerToe(naam, geboortejaar, 0,null);
+                dc.voegSpelerToe(naam, geboortejaar, 0, wedstrijdStapel);
 
                 flag1 = false;
 

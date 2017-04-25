@@ -95,7 +95,7 @@ public class KiesSpelersApp {
         
         
         System.out.printf("%s",mws.toonKaarten());
-        mws.maakWedstrijdStapelAan();
+        mws.maakWedstrijdStapelAan(eersteKeuze - 1);
         
         System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
         System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
@@ -113,7 +113,7 @@ public class KiesSpelersApp {
 
         System.out.printf("Speler die een wedstrijdstapel wordt toegekend: %s%n", gekozen2Spelers[tweedeKeuze - 1].toString());
         System.out.printf("%s",mws.toonKaarten());
-        mws.maakWedstrijdStapelAan();
+        mws.maakWedstrijdStapelAan(tweedeKeuze - 1);
 
     }
 }

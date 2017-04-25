@@ -21,9 +21,9 @@ public class MaakWedstrijdStapel {
         this.dc = dc;
     }
 
-    public void maakWedstrijdStapelAan() {
+    public void maakWedstrijdStapelAan(int gekozenSpeler) {
         
-        dc.MaakWedstrijdStapel();
+        dc.maakWedstrijdStapel(gekozenSpeler);
     }
 
     public String toonKaarten() {
