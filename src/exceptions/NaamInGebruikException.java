@@ -1,10 +1,12 @@
 package exceptions;
 
+import domein.Taal;
+
 public class NaamInGebruikException extends RuntimeException {
 
     public NaamInGebruikException() {
         
-        this("Naam is al in gebruik! Kies een andere naam.");
+        this(Taal.geefVertaling("gebrNaam"));
     }
 
     public NaamInGebruikException(String message) {

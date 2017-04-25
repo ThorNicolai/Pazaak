@@ -27,6 +27,8 @@ public class KiesTaalApp {
                     System.out.printf("1) Nederlands%n2) Français%n3) English%nChoose a language (1,2 or 3): ");
                     keuze = scan.nextInt();
                     scan.nextLine();
+                    if(keuze != 1 && keuze != 2 && keuze != 3)
+                        System.out.println(("The selection must be 1,2 or 3"));
                 } while (keuze != 1 && keuze != 2 && keuze != 3);
                 keuzeBoolean = true;
             } catch (InputMismatchException e) {

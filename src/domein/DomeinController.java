@@ -63,7 +63,7 @@ public class DomeinController {
         Kaart[] gekozenKaarten = new Kaart[6];
 
         for (int i = 0; i < 6; i++) {
-            System.out.print("Kies een kaart: ");
+            System.out.println(Taal.geefVertaling("Keuze"));
             keuze = sc.nextInt();
 
             gekozenKaarten[i] = km.geefKaarten().get(keuze - 1);

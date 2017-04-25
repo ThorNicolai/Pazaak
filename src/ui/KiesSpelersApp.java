@@ -2,6 +2,7 @@ package ui;
 
 import domein.DomeinController;
 import domein.Speler;
+import domein.Taal;
 import java.util.Scanner;
 
 public class KiesSpelersApp {
@@ -30,13 +31,13 @@ public class KiesSpelersApp {
                 System.out.printf("%s%n", tslapp.toonSpelersLijst());
 
                 if (dc.geefSpelersLijst().length < 2) {
-                    System.out.println("Er zijn te weinig spelers om een wedstrijd te starten! Onze excuses voor het ongemak!");
+                    System.out.println(Taal.geefVertaling("spelerTekort"));
                 } else {
 
                     boolean flag = false;
                     do {
 
-                        System.out.println("Kies een speler om het spel mee te spelen!");
+                        System.out.println(Taal.geefVertaling("kiesSpeler"));
 
                         System.out.print("Speler 1:");
                         eersteKeuze = sc.nextInt();
@@ -47,7 +48,7 @@ public class KiesSpelersApp {
                         if (eersteKeuze != tweedeKeuze) {
                             flag = true;
                         } else {
-                            System.out.println("Je moet 2 verschillende spelers kiezen!");
+                            System.out.println(Taal.geefVertaling("verschilSpelers"));
                             System.out.printf("%s%n", tslapp.toonSpelersLijst());
                         }
 
@@ -57,19 +58,19 @@ public class KiesSpelersApp {
 
                     System.out.printf("speler 1 : %s%nspeler 2 : %s%n", gekozen2Spelers[0].toString(), gekozen2Spelers[1].toString());
 
-                    System.out.println("Bevestig de wedstrijd!");
+                    System.out.println(Taal.geefVertaling("bevestig"));
                     System.out.printf("1) Ja%n2) Neen%n");
                     int keuze = sc.nextInt();
 
                     switch (keuze) {
                         case 1:
-                            System.out.println("Bedankt! u kan verder!");
+                            System.out.println(Taal.geefVertaling("bedankt"));
                             break;
                         case 2:
-                            System.out.println("Oei, wilt u annuleren?");
+                            System.out.println(Taal.geefVertaling("annulatie"));
                             break;
                         default:
-                            System.out.println("Deze speler bestaat niet!");
+                            System.out.println(Taal.geefVertaling("onbestaand"));
                     }
 
                 }
@@ -77,7 +78,7 @@ public class KiesSpelersApp {
                 flag2 = true;
 
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("1 of beide spelers bestaan niet! ");
+                System.out.println(Taal.geefVertaling("1onbestaand"));
             }
         } while (flag2 == false);
 
@@ -88,30 +89,30 @@ public class KiesSpelersApp {
         MaakWedstrijdStapel mws = new MaakWedstrijdStapel(dc);
 
         System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
-        System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
+        System.out.print(Taal.geefVertaling("spelerToevoegen"));
         int eersteKeuze = sc.nextInt();
 
-        System.out.printf("Speler die een wedstrijdstapel wordt toegekend: %s%n", gekozen2Spelers[eersteKeuze - 1].toString());
+        System.out.printf(Taal.geefVertaling("toegekendeWedstrijdStapel"), gekozen2Spelers[eersteKeuze - 1].toString());
         
         
         System.out.printf("%s",mws.toonKaarten());
         mws.maakWedstrijdStapelAan(eersteKeuze - 1);
         
         System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
-        System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
+        System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
         int tweedeKeuze = sc.nextInt();
 
         while (eersteKeuze == tweedeKeuze) {
 
-            System.out.println("De speler heeft al een wedstrijdstapel! kies een andere alstublieft.");
+            System.out.println(Taal.geefVertaling("heeftStapel"));
 
             System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
-            System.out.print("Kies een speler om een wedstrijdstapel aan toe te voegen: ");
+            System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
             tweedeKeuze = sc.nextInt();
 
         } 
 
-        System.out.printf("Speler die een wedstrijdstapel wordt toegekend: %s%n", gekozen2Spelers[tweedeKeuze - 1].toString());
+        System.out.printf(Taal.geefVertaling("toegekendeWedstrijdStapel"), gekozen2Spelers[tweedeKeuze - 1].toString());
         System.out.printf("%s",mws.toonKaarten());
         mws.maakWedstrijdStapelAan(tweedeKeuze - 1);
 
