@@ -61,9 +61,8 @@ public class DomeinController {
     public void maakWedstrijdStapel(int geselecteerdeSpeler) {
 
         int keuze;
-       
+
         Kaart[] gekozenKaarten = new Kaart[6];
-        Kaart[] echteWedStapel = new Kaart[4];
 
         for (int i = 0; i < 6; i++) {
             System.out.println(Taal.geefVertaling("Keuze"));
@@ -72,22 +71,11 @@ public class DomeinController {
             gekozenKaarten[i] = km.geefKaarten().get(keuze - 1);
 
         }
-        
-        Collections.shuffle(Arrays.asList(gekozenKaarten));
-        
-        for(int j = 0; j < echteWedStapel.length; j++){
-            echteWedStapel[j] = gekozenKaarten[j];
-        }
-        
+
 //        for(Kaart overloper : echteWedStapel){
 //            System.out.printf("%s",overloper.toString());
 //        }
-        
-        
-
-        spelers[geselecteerdeSpeler].setWedstrijdStapel(echteWedStapel);
-        
-        
+        spelers[geselecteerdeSpeler].setWedstrijdStapel(gekozenKaarten);
 
     }
 
