@@ -29,8 +29,10 @@ public class Kaart {
     @Override
     public String toString(){
         
-        return String.format("Type: %s \tWaarde: %d",type, waarde);
+        return String.format("%s%d",type, waarde);
         
     }
+    
+    
 
 }

@@ -38,12 +38,6 @@ public class StartApplicatie {
                 
                 ksa.kies2Spelers();
                 ksa.kies1Speler();
-                
-                
-                
-                
-                
-                
                 break;
 
         }

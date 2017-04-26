@@ -1,6 +1,7 @@
 package ui;
 
 import domein.DomeinController;
+import domein.Speler;
 import domein.Taal;
 import java.util.Scanner;
 
@@ -19,8 +20,8 @@ public class ToonSpelerLijstApp {
 
         String overzicht = "";
         int teller = 1;
-        for (String speler : dc.geefSpelersLijst()) {
-            overzicht += String.format("%d) %s%n", teller, speler);
+        for (Speler speler : dc.geefSpelersLijst()) {
+            overzicht += String.format("%d) %s%n", teller, speler.toString());
             teller++;
         }
 

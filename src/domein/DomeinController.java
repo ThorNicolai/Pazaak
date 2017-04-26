@@ -5,17 +5,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 import persistentie.KaartMapper;
 
 public class DomeinController {
 
     private SpelerRepository spelerrepo;
-    private Wedstrijd wedstrijd;
+
     private Taal taal;
     Speler[] spelers = new Speler[2];
     private KaartMapper km;
     private Speler speler;
+    private KaartRepository kr;
 
     Scanner sc = new Scanner(System.in);
 
@@ -28,68 +30,66 @@ public class DomeinController {
     public void voegSpelerToe(String naam, int geboortejaar, int krediet, Kaart[] wedstrijdStapel) {
 
         Speler nieuweSpeler = new Speler(naam, geboortejaar, krediet, wedstrijdStapel);
-        spelerrepo.voegSpelerToe(nieuweSpeler); //roept methode voegSpelerToe aan uit SpelerRepository(waarin gecontroleerd wordt of naam al bestaat)
+        spelerrepo.voegSpelerToe(nieuweSpeler);
 
     }
 
-    public String[] geefSpelersLijst() {
+    public List<Speler> geefSpelersLijst() {
 
-        String[] spelers = new String[spelerrepo.geefSpelersLijst().size()];
-        int index = 0;
-        for (Object speler : spelerrepo.geefSpelersLijst()) {
-            spelers[index] = speler.toString();
-            index++;
-        }
-
-        return spelers;
+        return spelerrepo.geefSpelersLijst();
 
     }
 
-    public Speler[] maakWedstrijd(int eersteKeuze, int tweedeKeuze) {
+    public void maakWedstrijd(String eersteKeuze, String tweedeKeuze) {
 
-        List<Speler> alleSpelers = new ArrayList<>();
-        alleSpelers = spelerrepo.geefSpelersLijst();
-
-        spelers[0] = alleSpelers.get(eersteKeuze - 1);
-        spelers[1] = alleSpelers.get(tweedeKeuze - 1);
-        wedstrijd = new Wedstrijd(spelers[0], spelers[1]);
-
-        return spelers;
+        Wedstrijd wed = new Wedstrijd(eersteKeuze, tweedeKeuze);
 
     }
 
-    public void maakWedstrijdStapel(int geselecteerdeSpeler) {
+    public void maakWedstrijdStapel(String geselecteerdeSpeler, Speler[] gekozen2Spelers) {
 
-        int keuze;
+        String keuze;
 
         Kaart[] gekozenKaarten = new Kaart[6];
 
-        for (int i = 0; i < 6; i++) {
-            System.out.println(Taal.geefVertaling("Keuze"));
-            keuze = sc.nextInt();
+        for (int i = 0; i < gekozenKaarten.length; i++) {
 
-            gekozenKaarten[i] = km.geefKaarten().get(keuze - 1);
+            System.out.print(Taal.geefVertaling("Keuze"));
+            keuze = sc.nextLine();
+
+            for (Kaart kaart : km.geefKaarten()) {
+
+                if (keuze.equals(kaart.toString())) {
+
+                    gekozenKaarten[i] = kaart;
+
+                }
+            }
 
         }
 
 //        for(Kaart overloper : echteWedStapel){
 //            System.out.printf("%s",overloper.toString());
 //        }
-        spelers[geselecteerdeSpeler].setWedstrijdStapel(gekozenKaarten);
-
-    }
-
-    public String[] toonKaarten() {
-
-        String[] kaarten = new String[km.geefKaarten().size()];
-        int index = 0;
-        for (Object kaart : km.geefKaarten()) {
-            kaarten[index] = kaart.toString();
-            index++;
+        for (int j = 0; j < gekozen2Spelers.length; j++) {
+            if (geselecteerdeSpeler.equals(gekozen2Spelers[j].getNaam())) {
+                gekozen2Spelers[j].setWedstrijdStapel(gekozenKaarten);
+            }
         }
 
-        return kaarten;
-
+        for (int j = 0; j < gekozen2Spelers.length; j++) {
+            if (geselecteerdeSpeler.equals(gekozen2Spelers[j].getNaam())) {
+                for(int k = 0; k < gekozen2Spelers[j].getWedstrijdStapel().length;k++){
+                    System.out.printf(String.format("%s",gekozen2Spelers[j].getWedstrijdStapel()[k]));
+                }
+                
+            }
+        }
     }
 
+    public List<Kaart> geefKaarten() {
+
+        return km.geefKaarten();
+
+    }
 }

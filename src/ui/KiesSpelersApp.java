@@ -25,12 +25,11 @@ public class KiesSpelersApp {
         do {
             try {
 
-                int eersteKeuze;
-                int tweedeKeuze;
+                String eersteKeuze, tweedeKeuze;
 
                 System.out.printf("%s%n", tslapp.toonSpelersLijst());
 
-                if (dc.geefSpelersLijst().length < 2) {
+                if (dc.geefSpelersLijst().size() < 2) {
                     System.out.println(Taal.geefVertaling("spelerTekort"));
                 } else {
 
@@ -40,37 +39,36 @@ public class KiesSpelersApp {
                         System.out.println(Taal.geefVertaling("kiesSpeler"));
 
                         System.out.print("Speler 1:");
-                        eersteKeuze = sc.nextInt();
+                        eersteKeuze = sc.nextLine();
 
                         System.out.print("Speler 2:");
-                        tweedeKeuze = sc.nextInt();
+                        tweedeKeuze = sc.nextLine();
 
-                        if (eersteKeuze != tweedeKeuze) {
-                            flag = true;
-                        } else {
+                        if (eersteKeuze.equals(tweedeKeuze)) {
                             System.out.println(Taal.geefVertaling("verschilSpelers"));
                             System.out.printf("%s%n", tslapp.toonSpelersLijst());
+                        } else {
+                            flag = true;
                         }
 
                     } while (flag == false);
 
-                    gekozen2Spelers = dc.maakWedstrijd(eersteKeuze, tweedeKeuze);
+                    dc.maakWedstrijd(eersteKeuze, tweedeKeuze);
 
-                    System.out.printf("speler 1 : %s%nspeler 2 : %s%n", gekozen2Spelers[0].toString(), gekozen2Spelers[1].toString());
+                    for (int i = 0; i < 1; i++) {
+                        for (Speler speler : dc.geefSpelersLijst()) {
+                            if (eersteKeuze.equals(speler.getNaam())) {
+                                gekozen2Spelers[i] = speler;
+                            }
+                        }
+                    }
 
-                    System.out.println(Taal.geefVertaling("bevestig"));
-                    System.out.printf("1) Ja%n2) Neen%n");
-                    int keuze = sc.nextInt();
-
-                    switch (keuze) {
-                        case 1:
-                            System.out.println(Taal.geefVertaling("bedankt"));
-                            break;
-                        case 2:
-                            System.out.println(Taal.geefVertaling("annulatie"));
-                            break;
-                        default:
-                            System.out.println(Taal.geefVertaling("onbestaand"));
+                    for (int i = 1; i < 2; i++) {
+                        for (Speler speler : dc.geefSpelersLijst()) {
+                            if (tweedeKeuze.equals(speler.getNaam())) {
+                                gekozen2Spelers[i] = speler;
+                            }
+                        }
                     }
 
                 }
@@ -85,36 +83,49 @@ public class KiesSpelersApp {
     }
 
     public void kies1Speler() {
-        
+
         MaakWedstrijdStapel mws = new MaakWedstrijdStapel(dc);
 
         System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
         System.out.print(Taal.geefVertaling("spelerToevoegen"));
-        int eersteKeuze = sc.nextInt();
+        String eersteKeuze = sc.nextLine();
 
-        System.out.printf(Taal.geefVertaling("toegekendeWedstrijdStapel"), gekozen2Spelers[eersteKeuze - 1].toString());
-        
-        
-        System.out.printf("%s",mws.toonKaarten());
-        mws.maakWedstrijdStapelAan(eersteKeuze - 1);
-        
-        System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
-        System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
-        int tweedeKeuze = sc.nextInt();
+        for (int i = 0; i < gekozen2Spelers.length; i++) {
 
-        while (eersteKeuze == tweedeKeuze) {
+            if (eersteKeuze.equals(gekozen2Spelers[i].getNaam())) {
+                System.out.printf(Taal.geefVertaling("toegekendeWedstrijdStapel"), gekozen2Spelers[i].toString());
+            }
 
-            System.out.println(Taal.geefVertaling("heeftStapel"));
+        }
 
-            System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
-            System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
-            tweedeKeuze = sc.nextInt();
+        System.out.printf("%s", mws.toonKaarten());
+        mws.maakWedstrijdStapelAan(eersteKeuze,gekozen2Spelers);
+//
+//        System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
+//        System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
+//        int tweedeKeuze = sc.nextInt();
+//
+//        while (eersteKeuze == tweedeKeuze) {
+//
+//            System.out.println(Taal.geefVertaling("heeftStapel"));
+//
+//            System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
+//            System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
+//            tweedeKeuze = sc.nextInt();
+//
+//        }
+//
+//        System.out.printf(Taal.geefVertaling("toegekendeWedstrijdStapel"), gekozen2Spelers[tweedeKeuze - 1].toString());
+//        System.out.printf("%s", mws.toonKaarten());
+//        mws.maakWedstrijdStapelAan(tweedeKeuze - 1);
 
-        } 
+    }
 
-        System.out.printf(Taal.geefVertaling("toegekendeWedstrijdStapel"), gekozen2Spelers[tweedeKeuze - 1].toString());
-        System.out.printf("%s",mws.toonKaarten());
-        mws.maakWedstrijdStapelAan(tweedeKeuze - 1);
+    public void toon2GekozenSpelers() {
+
+        for (int i = 0; i < 2; i++) {
+            System.out.printf("%d) %s%n", i + 1, gekozen2Spelers[i]);
+        }
 
     }
 }

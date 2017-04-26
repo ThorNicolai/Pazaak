@@ -23,9 +23,9 @@ public class MaakWedstrijdStapel {
         this.dc = dc;
     }
 
-    public void maakWedstrijdStapelAan(int gekozenSpeler) {
+    public void maakWedstrijdStapelAan(String gekozenSpeler,Speler[]gekozen2Spelers) {
         
-     dc.maakWedstrijdStapel(gekozenSpeler);
+     dc.maakWedstrijdStapel(gekozenSpeler,gekozen2Spelers);
         
     }
 
@@ -33,8 +33,8 @@ public class MaakWedstrijdStapel {
 
         String overzicht = "";
 
-        for (String i : dc.toonKaarten()) {
-            overzicht += String.format("%s%n", i);
+        for (Kaart kaart : dc.geefKaarten()) {
+            overzicht += String.format("%s%n", kaart.toString());
         }
 
         return overzicht;

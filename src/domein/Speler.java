@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import persistentie.KaartMapper;
+import persistentie.SpelerMapper;
 
 public class Speler {
 
@@ -17,6 +18,8 @@ public class Speler {
 
     Taal taal = null;
     private KaartMapper km;
+    
+    private SpelerMapper sm;
 
     public Speler(String naam, int geboortejaar, int krediet, Kaart[] wedstrijdStapel) {
 
@@ -107,5 +110,21 @@ public class Speler {
         return String.format("%s", naam);
 
     }
+    
+    public void voegSpelerToe(String naam, int geboortejaar, int krediet, Kaart[] wedstrijdStapel){
+        
+        Speler nieuweSpeler = new Speler(naam, geboortejaar, krediet, wedstrijdStapel);
+        sm.voegToe(nieuweSpeler);
+        
+    }
+    
+    
+    
+    //public String[] geefLijstSpelers(){
+        
+        
+        
+        
+    //}
 
 }

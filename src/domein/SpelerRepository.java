@@ -15,6 +15,7 @@ public class SpelerRepository {
 
     private SpelerMapper sm;
     private List<Speler> spelerslijst;
+    private Speler sp;
 
     public SpelerRepository() {
 
@@ -24,12 +25,7 @@ public class SpelerRepository {
 
     public void voegSpelerToe(Speler nieuweSpeler) {
 
-        /* if (bestaatSpeler(speler.getNaam())) {
-            throw new NaamInGebruikException();
-
-        } else {
-            sm.voegToe(speler);
-        }*/
+        
         sm.voegToe(nieuweSpeler);
 
     }
