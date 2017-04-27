@@ -99,25 +99,29 @@ public class KiesSpelersApp {
         }
 
         System.out.printf("%s", mws.toonKaarten());
-        mws.maakWedstrijdStapelAan(eersteKeuze,gekozen2Spelers);
-//
-//        System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
-//        System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
-//        int tweedeKeuze = sc.nextInt();
-//
-//        while (eersteKeuze == tweedeKeuze) {
-//
-//            System.out.println(Taal.geefVertaling("heeftStapel"));
-//
-//            System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
-//            System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
-//            tweedeKeuze = sc.nextInt();
-//
-//        }
-//
-//        System.out.printf(Taal.geefVertaling("toegekendeWedstrijdStapel"), gekozen2Spelers[tweedeKeuze - 1].toString());
-//        System.out.printf("%s", mws.toonKaarten());
-//        mws.maakWedstrijdStapelAan(tweedeKeuze - 1);
+        mws.maakWedstrijdStapelAan(eersteKeuze, gekozen2Spelers);
+
+        System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
+        System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
+        String tweedeKeuze = sc.nextLine();
+
+        while (eersteKeuze.endsWith(tweedeKeuze)) {
+
+            System.out.println(Taal.geefVertaling("heeftStapel"));
+
+            System.out.printf("1) %s%n2) %s%n", gekozen2Spelers[0], gekozen2Spelers[1]);
+            System.out.print(Taal.geefVertaling("kiesStapelSpeler"));
+            tweedeKeuze = sc.nextLine();
+
+        }
+
+        for(int i = 0; i < gekozen2Spelers.length;i++){
+            if(tweedeKeuze.equals(gekozen2Spelers[i].getNaam())){
+                System.out.printf(Taal.geefVertaling("toegekendeWedstrijdStapel"), gekozen2Spelers[i].toString());
+            }
+        }
+        System.out.printf("%s", mws.toonKaarten());
+        mws.maakWedstrijdStapelAan(tweedeKeuze,gekozen2Spelers);
 
     }
 

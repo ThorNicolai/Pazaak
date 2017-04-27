@@ -80,7 +80,7 @@ public class DomeinController {
         for (int j = 0; j < gekozen2Spelers.length; j++) {
             if (geselecteerdeSpeler.equals(gekozen2Spelers[j].getNaam())) {
                 for(int k = 0; k < gekozen2Spelers[j].getWedstrijdStapel().length;k++){
-                    System.out.printf(String.format("%s",gekozen2Spelers[j].getWedstrijdStapel()[k]));
+                    System.out.printf(String.format("%s%n",gekozen2Spelers[j].getWedstrijdStapel()[k]));
                 }
                 
             }
